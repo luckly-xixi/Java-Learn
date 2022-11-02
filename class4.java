@@ -4,6 +4,36 @@ import java.util.Scanner;
 public class class4 {
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int sum = 0;
+        int num = 0;
+        while (sc.hasNextInt()) {
+            int tmp = sc.nextInt();
+            sum += tmp;
+            num++;
+        }
+        System.out.println("sum = " + sum);
+        System.out.println("avg = " + sum / num);
+        sc.close();
+    }
+
+    public static void main21(String[] args) {
+        //nextline和next的区别
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("请输入年龄！");
+        int n = input.nextInt();
+        System.out.println(n);
+
+        System.out.println("请输入姓名！");
+        String name = input.nextLine();
+        System.out.println(name);
+        //此时nextline会将输入年龄时候的回车给读取走
+        //解决方法是在输入年龄和姓名直间再加一个nextline
+
+    }
+
+    public static void main20(String[] args) {
 
         //固定格式
         Scanner input = new Scanner(System.in);
