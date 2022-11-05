@@ -2,6 +2,51 @@ import java.util.Scanner;
 
 public class work1 {
 
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+//        int a = input.nextInt();
+//
+//        for (int i = 0; i < a; i++) {
+//            for (int j = 0; j < a; j++) {
+//                if(i == j ||i+j == a-1) {
+//                    System.out.print("*");
+//                }else {
+//                    System.out.print(" ");
+//                }
+//            }
+//            System.out.println();
+//        }
+
+        while (input.hasNextInt()) {
+            int a = input.nextInt();
+
+            for (int i = 0; i < a; i++) {
+                for (int j = 0; j < a; j++) {
+                    if(i == j ||i+j == a-1) {
+                        System.out.print("*");
+                    }else {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.println();
+            }
+        }
+
+    }
+
+        // 获取一个数的二进制序列中的所有偶数位和奇数位，分别输出二进制序列
+    public static void main9(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int a = input.nextInt();
+        for (int i = 31; i >= 1; i-=2) {
+            System.out.println("偶数"+((a >>> 1) & 1));
+        }
+        for (int i = 30; i >= 0; i-=2) {
+            System.out.println("奇数"+((a >>> 1) & 1));
+        }
+
+    }
+
     public static double num (int x) {
         if(x < 10) {
             return x;
