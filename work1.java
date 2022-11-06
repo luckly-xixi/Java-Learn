@@ -1,8 +1,11 @@
 import java.util.Scanner;
 
 public class work1 {
-
     public static void main(String[] args) {
+        System.out.println("aaa");
+    }
+
+    public static void main10(String[] args) {
         Scanner input = new Scanner(System.in);
 //        int a = input.nextInt();
 //
