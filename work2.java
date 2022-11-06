@@ -41,20 +41,36 @@ public class work2 {
         return x+y+z;
     }
 
+    public static int fab(int x){
+        if(x == 1||x == 2) {
+            return 1;
+        }
+        int f1 = 1;
+        int f2 = 1;
+        int f3 = 0;
+        for (int i = 3; i <= x; i++) {
+            f3 = f1 + f2;
+            f1 = f2;
+            f2 = f3;
+        }
+        return f3;
+    }
     public static void main6(String[] args) {
         //求斐波那契数列的第n项。(迭代实现)
 
         Scanner input = new Scanner(System.in);
         int a = input.nextInt();
 
-        int b = fac(a);
+        int b = fab(a);
+        int c = fab1(a);
         System.out.println("斐波那契的第"+a+"项值为"+b);
+        System.out.println("斐波那契的第"+a+"项值为"+c);
     }
-    public static int fac(int x) {
+    public static int fab1(int x) {
         if(x == 1||x == 2) {
             return 1;
         }
-        return fac(x-1)+fac(x-2);
+        return fab1(x-1)+fab1(x-2);
     }
 
     public static void main5(String[] args) {
@@ -99,13 +115,26 @@ public class work2 {
         int count = 0;
         Scanner input = new Scanner(System.in);
 
+//        while (count != 3) {
+//            int a = input.nextInt();
+//            if(a == 3) {
+//                System.out.println("登陆成功！");
+//            }
+//            count++;
+//            System.out.println("密码错误！");
+//        }
+//        System.out.println("退出程序！");
+
+        String passWorld = input.nextLine();
         while (count != 3) {
-            int a = input.nextInt();
-            if(a == 3) {
+            System.out.println("请输入你的密码");
+            if(passWorld.equals("123456")) {
                 System.out.println("登陆成功！");
+                break;
+            } else {
+                System.out.println("你还有"+count+"次机会");
+                count++;
             }
-            count++;
-            System.out.println("密码错误！");
         }
         System.out.println("退出程序！");
     }
@@ -132,4 +161,13 @@ public class work2 {
         System.out.println(tmp1-tmp2);
     }
 
+    public static void main9(String[] args) {
+        double sum = 0;
+        int flg = 1;
+        for (int i = 1; i <= 100; i++) {
+            sum += 1.0 / i * flg;
+            flg = - flg;
+        }
+        System.out.println(sum);
+    }
 }
