@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class work3 {
@@ -22,12 +23,16 @@ public class work3 {
         //创建一个 int 类型的数组, 元素个数为 100,
         // 并把每个元素依次设置为 1 - 100
         int [] array = new int[100];
-        for (int i = 0; i < 100; i++) {
+//        for (int i = 0; i < 100; i++) {
+//            array[i] = i+1;
+//        }
+        for (int i = 0; i < array.length; i++) {
             array[i] = i+1;
         }
-        for (int i = 0; i < 100; i++) {
-            System.out.println("array["+i+"]为"+array[i]+"  ");
-        }
+//        for (int i = 0; i < 100; i++) {
+//            System.out.println("array["+i+"]为"+array[i]+"  ");
+//        }
+        System.out.println(Arrays.toString(array));
     }
 
     public static void main6(String[] args) {
@@ -70,6 +75,9 @@ public static int fab(int x) {
 
         int b = inc(a);
         System.out.println(b);
+
+        int c =add(a);
+        System.out.println(c);
     }
     public static int inc(int x) {
         int sum =0;
@@ -79,7 +87,12 @@ public static int fab(int x) {
         sum = (x%10)+inc(x / 10);
         return sum;
     }
-
+    public static int add(int n) {
+        if(n > 10) {
+            return add(n/10)+n%10;
+        }
+        return n%10;
+    }
     public static void main3(String[] args) {
         //按顺序打印一个数字的每一位(例如 1234 打印出 1 2 3 4) （递归）
         int a = 1234;
