@@ -2,8 +2,35 @@ import java.util.Arrays;
 
 public class class6 {
 
-    public static void main(String[] args) {
+    public static void main22(String[] args) {
+        //拷贝方法四（克隆）
+        int[] array1 = {1,2,3,4};
+        int[] array2 = array1.clone();
+        System.out.println(Arrays.toString(array1));
+        System.out.println(Arrays.toString(array2));
 
+        System.out.println("==========");
+
+        array2[0] = 199;
+        System.out.println(Arrays.toString(array1));//[1, 2, 3, 4]
+        System.out.println(Arrays.toString(array2));//[199, 2, 3, 4]
+    }
+
+    public static void main21(String[] args) {
+        int[] array1 = {1,2,3,4};
+        int[] array2 = new int[10];
+        Arrays.fill(array2,1);
+
+        System.out.println(Arrays.toString(array2));//[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    }
+
+    public static void main20(String[] args) {
+        int[] array1 = {1,2,3,4};
+        int[] array2 = new int[10];
+
+        Arrays.fill(array2,1,3,1);
+
+        System.out.println(Arrays.toString(array2));//[0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
     }
 
     public static void main19(String[] args) {
