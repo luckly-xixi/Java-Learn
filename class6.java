@@ -2,6 +2,91 @@ import java.util.Arrays;
 
 public class class6 {
 
+    public static void main(String[] args) {
+        int[][] array = new int[3][];
+
+        array[0] = new int[] {2,8,4,6,2};
+        array[1] = new int[2];
+//        System.out.println(array[0]);//null
+//        System.out.println(array[1]);//null
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j]+" ");;
+            }
+            System.out.println();;
+        }
+    }
+
+    public static void main26(String[] args) {
+        //二维数组的遍历方式
+        //方式一（for循环）
+        int[][] array = {{1,2,3},{4,5,6}};
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j]+" ");;
+            }
+            System.out.println();;
+        }
+        System.out.println("----------");
+        //方式二（foreach）
+        for (int[] ret:array) {
+            for (int x:ret) {
+                System.out.print(x+" ");
+            }
+            System.out.println();
+        }
+        System.out.println("----------");
+        //方式三(Arrays.deepToString方法)：
+        //以字符串形式输出
+        System.out.println(Arrays.deepToString(array));
+    }
+
+    public static void main25(String[] args) {
+        int[][] array1 = {{1,2,3},{4,5,6}};
+
+        System.out.println(Arrays.toString(array1[0]));//[1, 2, 3]
+        System.out.println(Arrays.toString(array1[1]));//[4, 5, 6]
+    }
+
+    public static void main24(String[] args) {
+        //语法一：
+        int[][] array1 = {{1,2,3},{4,5,6}};
+        //语法二：
+        int[][] array2 = new int[][]{{1,2,3},{4,5,6}};
+        //语法三：
+        int[][] array3 = new int[2][3];
+        array3 = new int[][] {{1,2,3},{4,5,6}};
+        //遍历数组打印
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(array3[i][j]+" ");
+            }
+            System.out.println();;
+        }
+    }
+
+    public static void main23(String[] args) {
+        //数组逆序
+        int[] array = {6,5,4,3,2,1};
+        reverse(array);
+        System.out.println(Arrays.toString(array));
+    }
+    public static void reverse(int[] array) {
+        int left =0;
+        int right = array.length-1;
+        while (left < right) {
+            swap(array,left,right);
+            left++;
+            right--;
+        }
+    }
+
+    public static void swap(int[] array,int i,int j) {
+        int tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+
     public static void main22(String[] args) {
         //拷贝方法四（克隆）
         int[] array1 = {1,2,3,4};
