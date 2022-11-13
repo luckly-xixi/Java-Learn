@@ -20,13 +20,18 @@ class Student {
     public Student () {
         System.out.println("没有参数的构造方法");
     }
+
     //实例代码块
     {
         this.name = "giao";
         this.age = 12;
         System.out.println("I am instance init()!");
     }
-
+    //静态方法
+    public static void func() {
+        System.out.println("name");
+    }
+//静态代码快
     static {
         System.out.println("静态代码块 -> 初始化静态的数据成员/提前准备一些数据");
     }
@@ -56,10 +61,7 @@ class Student {
     }
 
     public void show() {
-        System.out.println(name);
-    }
-    public static void func() {
-        System.out.println("name");
+        System.out.println(name+" "+age);
     }
 }
 
@@ -69,6 +71,15 @@ class Student {
 public class branch7 {
 
     public static void main(String[] args) {
+        Student student = new Student();
+        student.show();
+    }
+
+    public static void main7(String[] args) {
+        Student.func();
+    }
+
+    public static void main6(String[] args) {
         Student student = new Student();
     }
 
