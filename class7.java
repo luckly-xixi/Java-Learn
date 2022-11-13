@@ -12,7 +12,15 @@
         }
 
         public void show() {
-            System.out.println(name+age);
+            System.out.println(name+" "+age);
+        }
+
+        @Override
+        public String toString() {
+            return "Person{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    '}';
         }
     }
 
@@ -101,8 +109,10 @@
         public class class7 {
 
             public static void main(String[] args) {
-                Date date1 = new Date();
-                date1.printDate();
+                Person person = new Person();
+                System.out.println(person);
+
+//                person.show();
             }
 
             public static void main7(String[] args) {
