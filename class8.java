@@ -152,14 +152,85 @@ class Son extends Father {
         System.out.println("Son {}");
     }
 }
+class School {
+         public Studentens[] studentens;
+         public Teacher[] teachers;
+}
+class Studentens {
+        String name[];
+}
+class Teacher {
+        String name[];
+}
+
+class My_value {
+//    public int val;
+    private int val;
+    public int getVal() {
+        return val;
+    }
+
+    public void setVal(int val) {
+        this.val = val;
+    }
+}
+
     public class class8 {
+
+         public static void swp(My_value val1, My_value val2) {
+
+//            int tmp = val1.val;
+             int tmp = val1.getVal();
+//            val1.val = val2.val;
+             val1.setVal(val2.getVal());
+//            val2.val = tmp;
+             val2.setVal(tmp);
+         }
+
+         //交换（通过对对象的调用）
+        public static void main11(String[] args) {
+             My_value my_value1 = new My_value();
+//             my_value1.val = 10;
+             my_value1.setVal(10);
+
+            My_value my_value2 = new My_value();
+//            my_value2.val = 20;
+            my_value2.setVal(20);
+
+            swp(my_value1,my_value2);
+//            System.out.println(my_value1.val);
+//            System.out.println(my_value2.val);
+            System.out.println(my_value1.getVal());
+            System.out.println(my_value2.getVal());
+
+        }
+
+         //组合
+         public static void main10(String[] args) {
+            School school = new School();
+         }
+
+
+        public static void main9(String[] args) {
+            final int[] array = {1,2,3};
+//            array = new int[10];
+            array[0] = 555 ;
+        }
+        //final 关键字
+        public static void main8(String[] args) {
+            int a = 9 ;
+            a = 100 ;
+            final int B = 4 ;
+//            b = 5 ;
+        }
+
         public static void main7(String[] args) {
             Father father1 = new Father();
             System.out.println("=======");
             Father father2 = new Father();
         }
 
-        public static void main(String[] args) {
+        public static void main6(String[] args) {
             Son son1 = new Son();
             System.out.println("======");
             Son son2 = new Son();
