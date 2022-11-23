@@ -144,18 +144,41 @@ abstract class Animal1 {
 
        @Override
        public int compareTo(Student1 o) {
-          if(this.age > age) {
-              return 1;
-          }else if(this.age < age) {
-              return -1;
-          }else {
-              return 0;
-          }
+           if(this.name.compareTo(o.name) > 0) {
+               return 1;
+           }else if (this.name.compareTo(o.name) < 0) {
+               return -1;
+           }else {
+               return 0;
+           }
+
+           //          if(this.age > age) {
+//              return 1;
+//          }else if(this.age < age) {
+//              return -1;
+//          }else {
+//              return 0;
+//          }
        }
+
    }
 
 
    public class branch9 {
+
+       public static void sort (Comparable[] array) {
+           for (int i = 0; i < array.length-1; i++) {
+               for (int j = 0; j < array.length-1-i; j++) {
+
+                   if(array[j].compareTo(array[j+1]) > 0) {
+                       Comparable tmp = array[j];
+                       array[j] = array[j+1];
+                       array[j+1] = tmp;
+                   }
+
+               }
+           }
+       }
 
        public static void main(String[] args) {
            Student1[] student1 = new Student1[3];
@@ -163,9 +186,11 @@ abstract class Animal1 {
            student1[1] = new Student1("无敌坤坤",23,1);
            student1[2] = new Student1("小黑子",23,89);
 
-//           Arrays.sort(student1);
-//           System.out.println(Arrays.toString(student1));
+           Arrays.sort(student1);
+           System.out.println(Arrays.toString(student1));
            System.out.println(student1[0].compareTo(student1[1]));
+           sort(student1);
+           System.out.println(Arrays.toString(student1));
        }
 
        public static void main2(String[] args) {
