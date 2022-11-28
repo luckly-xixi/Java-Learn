@@ -40,7 +40,7 @@ public class AddIOperation implements IOperation {
         }
 
         bookList.setBook(currentSize,book);
-
+        //修改usedSize
         bookList.setUsedSize(currentSize+1);
     }
 }

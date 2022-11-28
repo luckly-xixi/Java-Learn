@@ -13,7 +13,12 @@ public class Book {
         this.price = price;
         this.type = type;
     }
-
+        public Book getBook(int pos) {
+            return this.book[pos];
+        }
+        public void setBook(int pos) {
+        this.book[usedSizd] = book;
+        }
     public String getName() {
         return name;
     }
