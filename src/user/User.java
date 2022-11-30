@@ -6,7 +6,7 @@ import operate.IOperation;
 public abstract class User {
 
     protected String name;
-    IOperation[] iOperations;
+    IOperation[] iOperations;//通过接口数组进行对各种操作功能的编排
 
     public User(String name) {
         this.name = name;
@@ -14,6 +14,7 @@ public abstract class User {
     public abstract int menu() ;
 
     public void doWork(int chioce, BookList bookList) {
-        iOperations[chioce].work(bookList);
+
+        this.iOperations[chioce].work(bookList);
     }
 }

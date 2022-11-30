@@ -13,12 +13,7 @@ public class Book {
         this.price = price;
         this.type = type;
     }
-        public Book getBook(int pos) {
-            return this.book[pos];
-        }
-        public void setBook(int pos) {
-        this.book[usedSizd] = book;
-        }
+
     public String getName() {
         return name;
     }
@@ -45,7 +40,7 @@ public class Book {
 
     public String getType() {
         return type;
-    }
+    }30
 
     public void setType(String type) {
         this.type = type;
@@ -58,6 +53,7 @@ public class Book {
     public void setBorrowed(boolean borrowed) {
         isBorrowed = borrowed;
     }
+
 
     @Override
     public String toString() {

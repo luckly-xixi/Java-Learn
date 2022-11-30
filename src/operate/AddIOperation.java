@@ -29,8 +29,8 @@ public class AddIOperation implements IOperation {
         int price = scanner.nextInt();
 
         Book book = new Book(name,author,price,type);
-
         int currentSize = bookList.getUsedSize();
+
         for (int i = 0; i < currentSize; i++) {
             Book tmp = bookList.getBooks(i);
             if(tmp.getName().equals(name)) {
@@ -42,5 +42,8 @@ public class AddIOperation implements IOperation {
         bookList.setBook(currentSize,book);
         //修改usedSize
         bookList.setUsedSize(currentSize+1);
+
+        System.out.println("存放成功！");
+
     }
 }

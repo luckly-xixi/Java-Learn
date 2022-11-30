@@ -12,6 +12,7 @@ public class NormalUser extends User{
         super(name);
 
         this.iOperations = new IOperation[]{
+                //在实例化接口数组的时候将初始化的操作功能进行编排
                 new ExitOperation(),
                 new BorrowOperation(),
                 new FindIOperation(),
@@ -30,8 +31,7 @@ public class NormalUser extends User{
         System.out.println("请输入你的操作:");
 
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-        return choice;
+        return scanner.nextInt();
     }
 
 }

@@ -31,8 +31,7 @@ public class AdminUser extends User{
         System.out.println("请输入你的操作:");
 
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-        return choice;
+        return scanner.nextInt();
     }
 
 }

@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     public static User login() {
+
         System.out.println("请输入你的姓名:");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
@@ -22,12 +23,15 @@ public class Main {
 
     public static void main(String[] args) {
         BookList bookList = new BookList();
-        User user = login();
+        User user = login();//通过login方法储存姓名和选择身份，进行向上转型实例不同用户
 
         while (true) {
+
             int choice = user.menu();
             //根据choice 和 user 来确定到底调用哪个对象的哪个方法
             user.doWork(choice, bookList);
+
+
         }
 
     }

@@ -3,6 +3,7 @@ package book;
 public class BookList {
 
     private static final int DEFAULT_SIZE = 10;
+
     private Book[] books = new Book[DEFAULT_SIZE];
 
     public Book getBooks(int pos) {
