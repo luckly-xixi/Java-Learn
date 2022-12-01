@@ -14,7 +14,7 @@ public class AddIOperation implements IOperation {
     @Override
     public void work(BookList bookList) {
         System.out.println("新增图书");
-
+        //录入书籍的信息
         Scanner scanner = new Scanner(System.in);
         System.out.println("请输入书名");
         String name = scanner.nextLine();
@@ -28,9 +28,11 @@ public class AddIOperation implements IOperation {
         System.out.println("请输入价格");
         int price = scanner.nextInt();
 
+        //实例化新增书籍并把书籍信息填入
         Book book = new Book(name,author,price,type);
-        int currentSize = bookList.getUsedSize();
 
+        //遍历书架查看书架当中是否有了新增书籍
+        int currentSize = bookList.getUsedSize();
         for (int i = 0; i < currentSize; i++) {
             Book tmp = bookList.getBooks(i);
             if(tmp.getName().equals(name)) {
@@ -39,7 +41,8 @@ public class AddIOperation implements IOperation {
             }
         }
 
-        bookList.setBook(currentSize,book);
+        //通过上方操作，说明书架当中没有新增书籍，接下来开始将新增书籍放入书架
+        bookList.setBook(book);
         //修改usedSize
         bookList.setUsedSize(currentSize+1);
 

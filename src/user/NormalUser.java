@@ -11,7 +11,7 @@ public class NormalUser extends User{
 
         super(name);
 
-        this.iOperations = new IOperation[]{
+        super.iOperations = new IOperation[]{
                 //在实例化接口数组的时候将初始化的操作功能进行编排
                 new ExitOperation(),
                 new BorrowOperation(),

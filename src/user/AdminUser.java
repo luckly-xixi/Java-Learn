@@ -8,7 +8,7 @@ public class AdminUser extends User{
 
     public AdminUser(String name) {
         super(name);
-        this.iOperations = new IOperation[] {
+        super.iOperations = new IOperation[] {
                 new ExitOperation(),
                 new AddIOperation(),
                 new DelOperation(),

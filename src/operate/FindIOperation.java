@@ -14,17 +14,16 @@ public class FindIOperation implements IOperation {
     @Override
     public void work(BookList bookList) {
 
-//        System.out.println("查找图书");
+        System.out.println("查找图书");
+        System.out.println("请输入你要查找的书名:");
+
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
+
         int currentSize = bookList.getUsedSize();
-
         for (int i = 0; i < currentSize; i++) {
-
             Book book = bookList.getBooks(i);
-
             if(book.getName().equals(name)) {
-
                 System.out.println("找到该书：");
                 System.out.println(book);
                 return;

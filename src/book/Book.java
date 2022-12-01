@@ -40,7 +40,7 @@ public class Book {
 
     public String getType() {
         return type;
-    }30
+    }
 
     public void setType(String type) {
         this.type = type;
@@ -63,7 +63,7 @@ public class Book {
                 ", price=" + price +
                 ", type='" + type + '\'' +
 //                ", isBorrowed=" + isBorrowed +
-                (isBorrowed == true?"已被借出":"未被借出")+
+                (isBorrowed ? "  已被借出" : "  未被借出")+
                 '}';
     }
 }

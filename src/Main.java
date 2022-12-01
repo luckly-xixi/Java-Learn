@@ -14,6 +14,8 @@ public class Main {
         String name = scanner.nextLine();
         System.out.println("请选择你的身份：1 -> 管理员   0 -> 普通用户");
         int choice = scanner.nextInt();
+
+//         ((choice == 1)?return new  AdminUser : return new  NormalUser);
         if (choice == 1) {
             return new AdminUser(name);
         } else {

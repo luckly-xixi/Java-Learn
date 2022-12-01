@@ -13,11 +13,12 @@ public class BorrowOperation implements IOperation{
         System.out.println("输入你要借阅的图书");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
-        int currentSize = bookList.getUsedSize();
 
+        //遍历书架查看该书是否被借出
+        int currentSize = bookList.getUsedSize();
         for (int i = 0; i < currentSize; i++) {
             Book book = bookList.getBooks(i);
-            if(book.getName().equals(name)&& book.isBorrowed() == false) {
+            if(book.getName().equals(name) && book.isBorrowed() == false) {
                 book.setBorrowed(true);
                 System.out.println("借阅成功");
                 return;
