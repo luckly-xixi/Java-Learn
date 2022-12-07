@@ -1,7 +1,28 @@
 //Spring类
 public class class10 {
 
+    //按照字典序进行比较
     public static void main(String[] args) {
+        String str1 = new String("Hello");
+        String str2 = new String("Healo");
+        System.out.println(str1.compareTo(str2));
+    }
+
+    //字符串比较
+    public static void main3(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+        String str3 = "Hello";
+        String str4 = new String("Hello");
+        String str5 = new String("Hello");
+        System.out.println(str1 == str2);
+        System.out.println(str1 == str3);
+        System.out.println(str4 == str5);
+        //比较两个引用所指向的对象 里的内容是否一致
+        System.out.println(str4.equals(str5));
+    }
+
+    public static void main2(String[] args) {
 
         String str1 = "Hello";
         System.out.println(str1.length());
