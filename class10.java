@@ -2,24 +2,45 @@
 public class class10 {
 
     //按照字典序进行比较
-    public static void main(String[] args) {
+    public static void main4(String[] args) {
+        //字符串长度相同
         String str1 = new String("Hello");
         String str2 = new String("Healo");
-        System.out.println(str1.compareTo(str2));
+        //str1 和 str2 进行比较
+        System.out.println(str1.compareTo(str2));//11
+        String str3 = new String("Healo");
+        String str4 = new String("Hello");
+        System.out.println(str3.compareTo(str4));//-11
+
+        String str5 = new String("Hello");
+        String str6 = new String("Hello");
+        System.out.println(str5.compareTo(str6));//0
+
+        //字符串长度不同
+        String tmp1 = new String("Helloabc");
+        String tmp2 = new String("Hello");
+        System.out.println(tmp1.compareTo(tmp2));//3
+        String tmp3 = new String("hello");
+        String tmp4 = new String("Hello");
+        //忽视两个字符串的大小写进行比较
+        //注意：汉字是不能忽略大小写的
+        System.out.println(tmp3.compareToIgnoreCase(tmp4));//0
     }
 
     //字符串比较
-    public static void main3(String[] args) {
+    public static void main(String[] args) {
         String str1 = "Hello";
         String str2 = "World";
         String str3 = "Hello";
         String str4 = new String("Hello");
         String str5 = new String("Hello");
+//        String str5 = new String("hello");
         System.out.println(str1 == str2);
         System.out.println(str1 == str3);
         System.out.println(str4 == str5);
         //比较两个引用所指向的对象 里的内容是否一致
         System.out.println(str4.equals(str5));
+//        System.out.println(str4.equalsIgnoreCase(str5));//忽略大小写
     }
 
     public static void main2(String[] args) {
