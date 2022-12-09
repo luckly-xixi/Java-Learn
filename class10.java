@@ -1,6 +1,54 @@
 //Spring类
 public class class10 {
 
+    //int lastIndexOf(String str)和int lastIndexOf(String str, int fromIndex)
+    public static void main(String[] args) {
+        String str1 = "ababcabcdabcde";
+        System.out.println(str1.lastIndexOf("abc"));//9
+        //从str1字符串(主串)最后往前找字符串abc（字串）首次出现的位置并返回该下标
+        System.out.println(str1.lastIndexOf("abc",8));//5
+        //从str1字符串(主串)8下标位置往前找字符串abc（字串）首次出现的位置并返回该下标
+    }
+
+    //int lastIndexOf(int ch)和int lastIndexOf(int ch, int fromIndex)
+    public static void main8(String[] args) {
+        String str1 = "ababcabcdabcde";
+        System.out.println(str1.lastIndexOf('c'));//11
+        //从str1字符串最后往前找字符c首次出现的位置并返回该下标
+        System.out.println(str1.lastIndexOf('c',8));//7
+        //从str1字符串8下标往前找字符c首次出现的位置并返回该下标
+    }
+
+    //int indexOf(String str)和int indexOf(String str, int fromIndex)
+    public static void main7(String[] args) {
+        String str1 = "ababcabcdabcde";
+        System.out.println(str1.indexOf("abc"));//2
+        //查找str1主串当中从0下标开始abc字符串（字串）出现的位置，并返回子串首字符出现的下标
+        System.out.println(str1.indexOf("abc",5));//5
+        //查找str1主串当中从5下标开始abc字符串（字串）出现的位置，并返回子串首字符出现的下标
+    }
+
+    //int indexOf(int ch)和int indexOf(int ch, int fromIndex)
+    public static void main6(String[] args) {
+        String str1 = "ababcabcdabcde";
+        System.out.println(str1.indexOf('c'));//4
+        //返回c第一次出现的位置（并返回他所在位置的下标），从0下标开始遍历数组
+        System.out.println(str1.indexOf('c',6));//7
+        //从6下标开始找字符c第一次出现的位置，并返回它所在位置的下标
+    }
+
+    //char charAt(int index)
+    public static void main5(String[] args) {
+        String str2 = "hello";
+        System.out.println(str2.charAt(0));//h
+        System.out.println(str2.charAt(1));//e
+        System.out.println(str2.charAt(2));//l
+
+        for (int i = 0; i < str2.length(); i++) {
+            System.out.println(str2.charAt(i));//遍历打印数组
+        }
+    }
+
     //按照字典序进行比较
     public static void main4(String[] args) {
         //字符串长度相同
@@ -28,7 +76,7 @@ public class class10 {
     }
 
     //字符串比较
-    public static void main(String[] args) {
+    public static void main3(String[] args) {
         String str1 = "Hello";
         String str2 = "World";
         String str3 = "Hello";
