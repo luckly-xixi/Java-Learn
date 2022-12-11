@@ -1,8 +1,36 @@
 //Spring类
 public class class10 {
 
-    //int lastIndexOf(String str)和int lastIndexOf(String str, int fromIndex)
     public static void main(String[] args) {
+        //大小写转换
+        String s1 = "hello";
+        String s2 = "HELLO";
+        // 小写转大写
+        System.out.println(s1.toUpperCase());//HELLO
+        // 大写转小写
+        System.out.println(s2.toLowerCase());//HELLO
+    }
+
+    public static void main10(String[] args) {
+        //数字转字符串
+        String str1 = String.valueOf(123);
+        System.out.println(str1);
+        //类型转字符串
+        String str2 = String.valueOf(new Persons("ss",2));
+        System.out.println(str2);
+
+        System.out.println("============");
+
+        //字符串转数字
+        String str3 = "123";
+        int data1 = Integer.parseInt(str3);
+        System.out.println(data1);
+        double data2 = Double.parseDouble(str3);
+        System.out.println(data2);
+    }
+
+    //int lastIndexOf(String str)和int lastIndexOf(String str, int fromIndex)
+    public static void main9(String[] args) {
         String str1 = "ababcabcdabcde";
         System.out.println(str1.lastIndexOf("abc"));//9
         //从str1字符串(主串)最后往前找字符串abc（字串）首次出现的位置并返回该下标
