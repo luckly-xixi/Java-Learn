@@ -2,13 +2,46 @@
 public class class10 {
 
     public static void main(String[] args) {
-        //大小写转换
-        String s1 = "hello";
-        String s2 = "HELLO";
+        //单个字符串替换
+        String str1 = "123123123123";
+        String ret1 = str1.replace('1','e');//e23e23e23e23
+        System.out.println(ret1);
+
+        //多个字符替换
+        String ret2 = str1.replace("12","zx");//zx3zx3zx3zx3
+        System.out.println(ret2);
+    }
+
+    public static void main13(String[] args) {
+        //以格式化的形式放到字符串当中
+        String str12 = String.format("%d-%d-%d",2022,12,12);
+        System.out.println(str12);//2022-12-12
+    }
+
+    public static void main12(String[] args) {
+        //字符串转数组
+        String str1 = "abcdef";
+        char[] array = str1.toCharArray();
+        System.out.println(array[1]);//b
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+
+        //字符串转数组
+        String str2 = new String(array);
+        System.out.println(str2);
+    }
+
+    public static void main11(String[] args) {
+        //只会把字母大小写转换
+        String str1 = "hello";
+        String str2 = "HELLO";
         // 小写转大写
-        System.out.println(s1.toUpperCase());//HELLO
+        System.out.println(str1.toUpperCase());//HELLO
         // 大写转小写
-        System.out.println(s2.toLowerCase());//HELLO
+        System.out.println(str2.toLowerCase());//hello
+        String str3 = "Hello";
+        System.out.println(str3.toUpperCase());//HELLO
     }
 
     public static void main10(String[] args) {
