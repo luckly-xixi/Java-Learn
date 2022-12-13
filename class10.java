@@ -1,7 +1,75 @@
 //Spring类
 public class class10 {
 
+    //分割字符串
     public static void main(String[] args) {
+        String str = "192.168.1.1";
+//        String[] tmp = str.split(".",2);
+        String[] tmp = str.split("\\.",2);
+        for (String i:tmp) {
+            System.out.println(i);
+        }
+//        192
+//        168.1.1
+        String str2 = "192\\168\\1\\1";
+        String[] tmp2 = str2.split("\\\\",2);
+        for (String i:tmp2) {
+            System.out.println(i);
+        }
+//        192
+//        168\1\1
+
+
+        String str3 = "1+2=3";
+        String[] tmp3 = str3.split("\\+");
+        for (String i:tmp3) {
+            System.out.println(i);
+//            1
+//            2=3
+        }
+        String[] tmp4 = str3.split("\\+|=");
+        for (String i:tmp4) {
+            System.out.println(i);
+//            1
+//            2
+//            3
+        }
+
+        //多次分割
+        String str4 = "name=zhangsan&age=18";
+        String[] tmp5 = str4.split("&");
+        for (int i = 0; i < tmp5.length; i++) {
+//            System.out.println(tmp5[i]);
+//            name=zhangsan
+//            age=18
+            //通过调用分割后的字符串再次进行分割
+            String[] strings = tmp5[i].split("=");
+            for (String s:strings) {
+                System.out.println(s);
+            }
+//            name
+//            zhangsan
+//            age
+//            18
+        }
+
+
+    }
+
+    //字符串的分割
+    public static void main15(String[] args) {
+        String str1 = "yi li wo li giao";
+        String[] tmp = str1.split(" ");// 按照空格拆分
+        for (int i = 0; i < tmp.length; i++) {
+            System.out.println(tmp[i]);
+        }
+        String[] tmp2 = str1.split(" ",2);
+        for (int i = 0; i < tmp2.length; i++) {
+            System.out.println(tmp[i]);
+        }
+    }
+
+    public static void main14(String[] args) {
         //单个字符串替换
         String str1 = "123123123123";
         String ret1 = str1.replace('1','e');//e23e23e23e23
@@ -10,6 +78,15 @@ public class class10 {
         //多个字符替换
         String ret2 = str1.replace("12","zx");//zx3zx3zx3zx3
         System.out.println(ret2);
+
+        //替换所有的指定内容
+        String str3 = "123451237128128";
+        String tmp = str3.replaceAll("12","giao");
+        System.out.println(tmp);//giao345giao37giao8giao8
+
+        //替换首个内容
+        String tmp2 = str3.replaceFirst("12","woqu");
+        System.out.println(tmp2);//woqu3451237128128
     }
 
     public static void main13(String[] args) {
