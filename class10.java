@@ -1,6 +1,8 @@
 //Spring类
 public class class10 {
 
+    //字符串的拆分
+
     //分割字符串
     public static void main(String[] args) {
         String str = "192.168.1.1";
