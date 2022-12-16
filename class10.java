@@ -1,10 +1,39 @@
 //Spring类
 public class class10 {
 
-    //字符串的拆分
+    public static void main(String[] args) {
+
+        String str1 = "abcd";
+        String str2 = new String("abcd");
+        System.out.println(str1 == str2);//false
+
+        String str3 = "abcd";
+        System.out.println(str1 == str3);//true
+    }
+
+    public static void main18(String[] args) {
+        String str = "   hello   world   ";
+        //只去掉字符串开头和结尾的空白字符
+        System.out.println(str);//[   hello   world   ]
+        String tmp = str.trim();
+        System.out.println(tmp);//[hello   world]
+    }
+
+    //字符串的截取
+    public static void main17(String[] args) {
+        //
+        String str = "1s5s3a7e";
+        //从下标2开始截取后面的字符内容
+        String tmp1 = str.substring(2);
+        System.out.println(tmp1);//5s3a7e
+
+        //从下标2开始截取到下标5截止（不包括下标5），区间是左闭右开的[)
+        String tmp2 = str.substring(2,5);
+        System.out.println(tmp2);//5s3
+    }
 
     //分割字符串
-    public static void main(String[] args) {
+    public static void main16(String[] args) {
         String str = "192.168.1.1";
 //        String[] tmp = str.split(".",2);
         String[] tmp = str.split("\\.",2);
