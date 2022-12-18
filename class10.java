@@ -2,8 +2,53 @@
 public class class10 {
 
     public static void main(String[] args) {
+
+        StringBuilder stringBuilder = new StringBuilder("abc");
+        System.out.println(stringBuilder);//abc
+
+        stringBuilder.append(" 123").append( 10);
+        stringBuilder.append( 19.9);
+
+        System.out.println(stringBuilder);//abc 1231019.9
+        //此时不会产生临时对象
+    }
+
+    public static void main21(String[] args) {
+
+        long start = System.currentTimeMillis();
+        String s = "";
+
+        for(int i = 0; i < 10000; ++i){
+            s += i;
+        }
+
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
+
+
+        start = System.currentTimeMillis();
+        StringBuffer sbf = new StringBuffer("");
+
+        for(int i = 0; i < 10000; ++i){
+            sbf.append(i);
+        }
+
+        end = System.currentTimeMillis();
+        System.out.println(end - start);
+
+        start = System.currentTimeMillis();
+        StringBuilder sbd = new StringBuilder();
+        for(int i = 0; i < 10000; ++i){
+            sbd.append(i);
+        }
+        end = System.currentTimeMillis();
+        System.out.println(end - start);
+    }
+
+    public static void main20(String[] args) {
         //
-        
+        String str = "abcd";
+        System.out.println(str);
     }
 
     public static void main19(String[] args) {
