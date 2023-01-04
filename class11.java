@@ -10,13 +10,26 @@ class New {
 
 public class class11 {
 
-    public static void main(String[] args) {
+    public static int giao(){
 
+        try{
+            int[] arrays = {1,2,3};
+            System.out.println(arrays[10]);
+        }catch (OutOfMemoryError e){
+            return 1;
+        }finally {
+            return 9;
+        }
+    }
+
+    public static void main(String[] args) {
+//建议别再finally里写return语句
+        System.out.println(giao());
 
     }
 
     public static void main10(String[] args) {
-        //finally用于资源的释放
+        //finally一般用于资源的释放
 //        Scanner scanner = new Scanner(System.in);
         //打开Scanner资源
 //        try
