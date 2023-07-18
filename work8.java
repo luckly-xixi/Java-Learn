@@ -1,12 +1,38 @@
 
 import java.util.Scanner;
+class X{
+    Y y=new Y();//1
+    public X(){//2
+        System.out.print("X");
+    }
+}
+class Y{
+    public Y(){//3
+        System.out.print("Y");
+    }
+}
+class Z extends X {
+    Y y = new Y();//4
 
+    public Z() {//5
+        System.out.print("Z");
+    }
+}
 public class work8 {
+
+
+        public static void main(String[] args) {
+            new Z();
+        }
+
+
+
+
 //有父类Base，内部定义了x、y属性。有子类Sub，继承自父类Base。
 // 子类新增了一个z属性，并且定义了calculate方法
 // 在此方法内计算了父类和子类中x、y、z属性三者的乘积。
 // 请补全子类构造方法的初始化逻辑，使得该计算逻辑能够正确执行。
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextInt()) {
             int x = scanner.nextInt();
