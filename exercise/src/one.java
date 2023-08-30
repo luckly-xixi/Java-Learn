@@ -16,7 +16,7 @@ public class one {
 //        如当输入链表{1,2,3}时,经反转后，原链表变为{3,2,1}，所以对应的输出为{3,2,1}。
 
 
-        public ListNode ReverseList (ListNode head) {
+//        public ListNode ReverseList (ListNode head) {
 //            // write code here
 //            ListNode pre = null;
 //            ListNode cur = head;
@@ -30,7 +30,7 @@ public class one {
 
 
 
-//                // 1、使用栈
+//                // （1）、使用栈
 //                Stack<ListNode> stack = new Stack<>();
 //                //把链表顺序放入栈中
 //                while(head!=null){
@@ -56,7 +56,7 @@ public class one {
 
 
 
-//                //2、 双链表
+//                //（2）、 双链表
 //                // 类似于通过新链表和中间记录变量的链表,完成原链表的按照原来顺序逆置下去
 //                //创建一个新链表
 //                ListNode newHead = null;
@@ -73,7 +73,7 @@ public class one {
 //                return newHead;
 //
 
-//                //3. 递归
+//                //（3）. 递归
 //                if(head == null || head.next == null)
 //                    // 终止条件
 //                    return head;
@@ -85,12 +85,25 @@ public class one {
 //                // 表示的是对链表的反转，所以反转完之后next肯定
 //                // 是链表reverse的尾结点，然后我们再把当前节点
 //                //head挂到next节点的后面就完成了链表的反转
-//                next.next = head;
+//                next.next = head;//head.next.next=head;
 //                //此时head相当于变成了尾节点，要将其下一个节点置空，防止成环
 //                head,next = null;
 //                return reverse;
 
-        }
+
+            //（4）. 尾递归
+//            return reverseListInt(head,null);
+//        }
+//
+//        private ListNode reverseListInt(ListNode head,ListNode newHead){
+//            if(head == null){
+//                return newHead;
+//            }
+//            ListNode next = head.next;
+//            head.next = newHead;
+//            return reverseListInt(next,head);
+//        }
+//        }
 
     }
 
