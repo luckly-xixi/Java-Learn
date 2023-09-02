@@ -1,0 +1,24 @@
+
+/* 设置标题 */
+.container-right h3 {
+
+    font-size: 22px;/* 字体大小 */
+    text-align: center;/* 居中 */
+    font-weight: 900;/* 字体加粗 */
+
+    padding: 20px 0;/* 间距 */
+}
+
+/* 设置日期 */
+.container-right .date {
+
+    text-align: center;
+    color: rgb(0,128,0);
+    padding: 10px 0;
+}
+
+/* 内容 */
+.container-right .content p {
+    text-indent: 2em;
+    margin-bottom: 5px;
+}

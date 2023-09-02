@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客列表页</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog_list.css">
+<!-- 引入jquery -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+
+<body>
+    <!-- navigation 导航栏 -->
+    <div class="nav">
+    <!-- logo -->
+        <img src="image/logo.jpg" alt="">
+        <div class="title">我的博客系统</div>
+        <!-- 这是一个空白为了把后面的元素挤过去 -->
+        <!-- 暴力写法 -->
+        <div class="spacer"></div>
+        <a href="blog_list.html">主页</a>
+        <a href="blog_edit.html">写博客</a>
+
+        <a href="">注销</a>
+    </div>
+
+
+    <!-- 页面的主体部分 -->
+    <div class="container">
+        <!-- 左侧信息 -->
+        <div class="comtainer-left">
+            <!-- 用户信息区 -->
+            <div class="card">
+                <!-- 用户头像 -->
+                <img src="image/ID.jpg" alt="">
+                <!-- 用户名 -->
+                <h3>反骨猫</h3>
+                <!-- github地址 -->
+                <a href="www.github.com">github地址</a>
+                <!-- 统计信息 -->
+                <div class="counter">
+                    <span>文章</span>
+                    <span>分类</span>
+                </div>
+                <div class="counter">
+                    <span>2</span>
+                    <span>1</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧信息 -->
+        <div class="container-right">
+            <!-- 这个div表示第一篇博客 -->
+            <!-- <div class="blog"> -->
+                <!-- 博客标题 -->
+                <!-- <div class="title">我的第一篇博客</div> -->
+                <!-- 发布时间 -->
+                <!-- <div class="data">2023-08-01 20:10:23</div> -->
+                <!-- 摘要 -->
+                <!-- <div class="desc">从今天起我要卷起来，Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem asperiores dignissimos quas ad saepe praesentium rem magnam placeat vel deleniti neque molestias reiciendis corrupti esse vero ducimus architecto, facere vitae.</div> -->
+                 <!-- html当中不能直接使用大于号(转义字符&gt;是大于号，&lt;是小于号)，大于号可能会被当作是标签的一部分 -->
+                  <!-- <a href="blog_detail.html?blogId=1">查看全文&gt;&gt;</a> -->
+            <!-- </div> -->
+
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+
+    <script>
+        //通过 ajax 给服务器发送请求，获取所有的博客数据 ，并构造到页面上
+        //构造函数获取所有的博客
+        function getBlogs() {
+            $.ajax ({
+                type:'get',
+                url:'blogs',
+                success: function(body) {
+                    //根据返回的数据构造出页面中对应的元素
+                    let containerRight = document.querySelector('.container-right');
+                    for(let blog of body) {
+                        let blogDiv = document.createElement("div");
+                        blogDiv.className = 'blog';
+                        let titleDiv = document.createElement("div");
+                        titleDiv.className = 'title';
+                        titleDiv.innerHTML = blog.title;
+                        let dateDiv = document.createElement("div");
+                        dateDiv.className = 'date';
+                        dateDiv.innerHTML = blog.postTime;
+                        let desecDiv = document.createElement("div");
+                        desecDiv.className = 'desc';
+                        desecDiv.innerHTML = blog.content;
+                        let a = document.createElement("a");
+                        a.href = 'blog_detail.html?blogId=' + blog.blogId;
+                        a.innerHTML = '查看全文&gt;&gt;';
+
+                        //把上述标签构造好了之后，还需要组合起来
+                        blogDiv.appendChild(titleDiv);
+                        blogDiv.appendChild(dateDiv);
+                        blogDiv.appendChild(descDiv);
+                        blogDiv.appendChild(a);
+                        containerRight.appendChild(blogDiv);
+                    }
+                }
+            })
+        }
+        //函数定义完要调用
+        getBlogs();
+
+        //判定用户的登陆状态
+        getLoginStatus();
+    </script>
+
+</body>
+</html>

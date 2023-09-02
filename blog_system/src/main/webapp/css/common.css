@@ -1,0 +1,168 @@
+/*公共的样式*/
+
+
+/* 写一个页面样式的起手式 */
+* {
+    box-sizing: border-box;
+    /* 去除浏览器默认样式 */
+    padding: 0;
+    margin: 0;
+}
+
+
+/* 标签选择器 */
+html {
+    /* 当前元素的高度和父元素一样高 */
+    height: 100%;
+}
+
+body {
+        /* 相对路径写法 */
+    background-image: url(../image/gril.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* 让图片尽可能填满整个元素 */
+    background-size: cover;
+
+    /*按照当前html代码写法body父元素是html元素，html元素的父元素是浏览器窗口  */
+    height: 100%;
+
+}
+
+/* 导航栏 */
+.nav /*类选择器*/{
+    /* 块级元素默认和父元素一样宽，写不写都行 */
+    width: 100%;
+    /* 导航栏一般都是50px */
+    height: 50px;
+    /* 导航栏背景色    使用透明度 */
+    /* background-color: rgb(50,50,50); */
+    background-color: rgba(50,50,50,0.6);
+    /* 导航栏的文本颜色 */
+    color: white;
+    /* 使用弹性布局，让里面的元素可以水平方向排列 */
+    display: flex;
+    /* 为了美化界面让其中的元素都垂直居中 */
+    align-items: center;
+}
+
+
+/* 导航栏logo图标 */
+.nav img /*后代选择器*/{
+    width: 50px;
+    height: 40px;
+    /* 设置logo有间距 */
+    margin-left: 30px;
+    margin-right: 10px;
+    /* 设置logo圆角矩形 */
+    border-radius: 20px;
+}
+
+.nav a {
+    /* 设置文字颜色为白色 */
+    color: white;
+    /* 去掉下划线 */
+    text-decoration: none;
+
+    /* 此处使用内边距将多个链接分出距离来 */
+    /* 此处使用外边距也行但是内边距更好，可以扩大点击范围 */
+    padding: 0 10px;
+}
+
+.nav .spacer {
+
+        width: 70%;
+
+}
+
+
+/* 页面的主体部分，也叫做“版心” */
+
+.container {
+
+    /* 设置固定宽度，水平居中 */
+    width: 1000px;
+
+    /* margin-left: auto;
+    margin-right: auto; 
+    上下是0，左右是auto
+    也可以使用下方方式设置*/
+    margin: 0 auto;
+
+
+    /* 设置和浏览器一样的高度 */
+    /* 注意，这里有坑：css3当中的特性cala类似于函数
+    （当然css并没有函数的概念）100%会被自动替换成父元素的高度
+    其次减号“-”左右两边必须要加空格否则编译器识别不出来 */
+    height: calc(100% - 50px);
+    
+    /* background-color:  rgb(255,0,0); */
+/* 弹性布局便于使左右信息水平排列 */
+    display: flex;
+
+        /* 让里面的元素等间距铺开 */
+    justify-content: space-between;
+}
+
+.container-left {
+
+    height: 100%;
+    width: 200px;
+
+    /* background-color: red; */
+}
+
+.container-right {
+
+    height: 100%;
+    width: 795px;
+
+    background-color: rgba(255,255,255,0.6);/*半透明白色背景*/
+    border-radius: 10px;/*圆角矩形*/
+    padding: 25px;/*加上内边距，让文字不顶边框排列*/
+
+    /* 当内容超出范围时，自动添加滚动条 */
+    overflow: auto;
+}
+
+/* 设置用户信息区 */
+.card {
+
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 10px;
+    padding: 30px;    /* 四个方向都设置内边距 */
+}
+
+/* 设置用户头像 */
+.card img {
+    /* container总共200px，由于设置内边距上下左右各30px
+    也就剩下了140px的可用空间 */
+    width: 140px;
+    height: 140px; 
+    border-radius: 70px;/* 圆角矩形让图片变圆 */
+}
+
+
+/* 设置用户名 */
+.card h3 {
+    
+    text-align: center;/*水平居中*/
+    padding: 10px;/*内外边距都行*/
+}
+
+/* 设置github地址 */
+.card a {
+    display: block;/* 把a标签转为块级元素，文本居中才有意义 */
+    
+    text-align: center;
+    color:rgb(13, 24, 180);/*灰色文字 */
+    text-decoration: none;/*去掉下划线*/
+    margin-bottom: 10px;/*让a标签与下方有一个间隔*/
+}
+
+/* 设置统计信息 */
+.card .counter {
+    display: flex;/*弹性布局*/
+    padding: 5px;
+    justify-content: space-around;/*水平的对齐方式*/
+}

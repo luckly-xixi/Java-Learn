@@ -1,0 +1,62 @@
+/* 放博客编辑页的样式 */
+
+/* 版心设置 */
+.blog_edit_container {
+    width: 1000px;
+    height: calc(100% - 50px);
+    margin: 0 auto;
+}
+
+/* 注意使用后代选择器，防止和导航栏中的.title 冲突*/
+.blog_edit_container .title {
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* 标题输入框 */
+#title-input {
+    height: 40px;
+    width: 896px;
+
+    border-radius: 10px;
+    border: none;
+
+    font-size: 20px;
+    text-indent: 10px;
+}
+
+
+/* 提交按钮 */
+#submit {
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+
+    color: white;
+    background-color: orange;
+}
+
+#submit:hover {
+    background-color: gray ;
+}
+
+
+/* 设置editor父元素（form元素）的高度，使其和父元素（blog_edit_container）一样 */
+.blog_edit_container form {
+    height: 100%;
+}
+
+/* 设置md编译器 */
+#editor {
+    border-radius: 10px;
+    /* background-color: rgba(255,255,255,0.6); */
+    /* 虽然给背景色设置了半透明，但是仍然看不到最终的背景 */
+    /* editor 其实有很多的子元素，虽然editor本身透明了但是里面的子元素是不透明的 */
+
+
+    /* 设置半透明会让里面的子元素也透明 */
+    opacity: 60%;
+} 

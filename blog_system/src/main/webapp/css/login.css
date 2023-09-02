@@ -1,0 +1,79 @@
+/* 登录页的css */
+
+/* 设置版心 */
+.login_container {
+    width: 100%;
+    height: calc(100% - 50px);
+
+    /* 为了使login_dialog可以垂直居中，使用弹性布局*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 设置对话框 */
+.login_dialog {
+    width: 500px;
+    height: 300px;
+
+    background-color:rgba(255,255,255,0.6);
+    border-radius: 10px;
+}
+
+/* 登陆标题 */
+.login_dialog h3 {
+    font-size: 22px;
+    font-weight: 900;
+    /* padding: 60px 0; */
+    text-align: center;/* 居中 */
+
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* 针对每一行的样式 */
+.row {
+
+    display: flex;
+
+    width: 100%;
+    height: 50px;
+
+    justify-content: space-around;
+}
+
+/* 每一行的文字 */
+.row span {
+    font-size: 20px;
+    width: 90px;
+}
+
+/* 调节输入框 */
+.row #username/*Id选择器*/ {
+    width: 320px;
+    height: 40px;
+    font-size: 20px;/*输入时的文字大小*/
+    text-indent: 10px;
+}
+.row #password/*Id选择器*/ {
+    width: 320px;
+    height: 40px;
+    font-size: 20px;
+    text-indent: 10px;
+}
+
+.row #submit {
+    width: 300px;
+    height: 40px;
+    color:white;
+    background-color: greenyellow;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 40px;
+}
+
+.row #submit:hover {
+    background: gray;
+}
