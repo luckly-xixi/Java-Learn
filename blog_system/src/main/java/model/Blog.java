@@ -52,7 +52,7 @@ public class Blog {
 //    }
 
     public String getPostTime() {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return format.format(postTime);
     }
 

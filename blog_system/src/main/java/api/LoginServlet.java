@@ -1,5 +1,6 @@
 package api;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import model.User;
 import model.UserDao;
 
@@ -13,7 +14,7 @@ import java.io.IOException;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -75,6 +76,10 @@ public class LoginServlet extends HttpServlet {
         return;
     }
     //已经登陆，  200  是默认状态码 ，此处 不写也可以
-        resp.setStatus(200);
+    resp.setStatus(200);
+    resp.setContentType("application/json;charset=utf8");
+    user.setPassword("");     //避免把密码也返回给前端
+    String respJson = objectMapper.writeValueAsString(user);
+    resp.getWriter().write(respJson);
     }
 }

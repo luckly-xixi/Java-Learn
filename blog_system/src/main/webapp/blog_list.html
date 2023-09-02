@@ -26,7 +26,7 @@
         <a href="blog_list.html">主页</a>
         <a href="blog_edit.html">写博客</a>
 
-        <a href="">注销</a>
+        <a href="logout">注销</a>
     </div>
 
 
@@ -39,7 +39,7 @@
                 <!-- 用户头像 -->
                 <img src="image/ID.jpg" alt="">
                 <!-- 用户名 -->
-                <h3>反骨猫</h3>
+                <h3></h3>
                 <!-- github地址 -->
                 <a href="www.github.com">github地址</a>
                 <!-- 统计信息 -->
@@ -71,7 +71,7 @@
         </div>
     </div>
 
-    <script src="js/app.js"></script>
+
 
     <script>
         //通过 ajax 给服务器发送请求，获取所有的博客数据 ，并构造到页面上
@@ -107,13 +107,34 @@
                         containerRight.appendChild(blogDiv);
                     }
                 }
-            })
+            });
         }
         //函数定义完要调用
         getBlogs();
 
+
+        function getLoginStatus() {
+    $.ajax({
+        type:'get',
+        url:'login',
+        success:function(body) {
+            //响应200，执行success回调
+            console.log("用户已经登陆");
+            //把返回的用户名，设置到页面中
+            let h3 = document.querySelector('.card h3');
+            //body已经是一个 js 对象了，就是前面服务器返回的 json 格式的 user 对象
+            h3.innerHTML = body.username;
+        },
+        error:function(body) {
+            //不响应200都会执行error,跳转到login.html主页
+            location.assign("login.html");
+        }
+    });
+}
         //判定用户的登陆状态
         getLoginStatus();
+
+
     </script>
 
 </body>

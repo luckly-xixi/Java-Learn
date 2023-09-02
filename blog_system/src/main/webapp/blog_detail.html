@@ -30,7 +30,7 @@
         <a href="blog_list.html">主页</a>
         <a href="blog_edit.html">写博客</a>
         
-        <a href="">注销</a>
+        <a href="logout">注销</a>
     </div>
 
 <!-- 页面主体部分 -->
@@ -42,7 +42,7 @@
                 <!-- 用户头像 -->
                 <img src="image/ID.jpg" alt="">
                 <!-- 用户名 -->
-                <h3>反骨猫</h3>
+                <h3></h3>
                 <!-- github地址 -->
                 <a href="www.github.com">github地址</a>
                 <!-- 统计信息 -->
@@ -92,6 +92,24 @@
         getBlog();
 
         getLoginStatus();
+
+        function getAuthor() {
+        $.ajax({
+            type:'get',
+            url:'user' + location.search,
+            success:function(body) {
+                //把响应中得到的 user 对象的数据，给构造到页面上
+                if(body.userId == 0) {
+                    //服务器没有找到匹配的用户
+                    alert("当前未找到作者信息！");
+                    return;
+                }
+                //body 是一个合法的 user 对象
+                let h3 = document.querySelector('.card h3');
+                h3.innerHTML = body.username;
+            }
+        });
+    }
 
     </script>
 </body>

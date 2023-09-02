@@ -10,6 +10,6 @@ function getLoginStatus() {
             //不响应200都会执行error,跳转到login.html主页
             location.assign("login.html");
         }
-    })
+    });
 }
 getLoginStatus();
