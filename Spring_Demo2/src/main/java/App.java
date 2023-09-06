@@ -8,10 +8,17 @@ public class App {
         //获取上下文对象
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("spring-config.xml");
+
+
+
         //得到 bean 对象
 //        User user = context.getBean("userinfo",User.class);
-        User user = context.getBean("user",User.class);
+//        User user = context.getBean("user",User.class);
+        User user =  (User) context.getBean("user");
+
+
         //使用 bean 对象
+//        user.sayHi();
         user.sayHi();
     }
 }
