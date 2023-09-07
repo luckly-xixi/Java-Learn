@@ -8,11 +8,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 @Service
 public class UserService {
 
     //1.属性注入
-    @Autowired  //DI(依赖注入)
+//    @Autowired  //DI(依赖注入)，来自spring
+    @Resource//@Resource来自Jdk，有些场景Resource比Autowired更方便
     private UserRepository userRepository;
 
     public int add() {

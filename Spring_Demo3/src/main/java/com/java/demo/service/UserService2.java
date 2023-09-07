@@ -18,6 +18,15 @@ public class UserService2 {
 //    2、通用性问题：只能适用于IoC容器
 //    3、设计原则问题：更容易违背单一原则
     @Autowired
+    //方法三：使用@Resource（name = "name "）来直接在里面设置name
+
+
+
+//    @Autowired VS @Resource 区别：
+//    1、出身不同：@Autowired来自于spring框架 ， @Resource 来自于JDK注解
+//    2、支持参数不同：@Resource支持很多参数设置，例如name设置，@Autowried支支持一个参数（@Qualifier）
+//    3、使用上的不同：@Resource不支持构造方法注入，而@Autowried支持构造方法注入
+//    4、idea兼容不同：使用@Autowried在idea专业版下可能会误报，@Resource不存在误报问题
     @Qualifier("user2") //方法二：通过筛选器配个Autowired
 //    private User user1; //方法一：更改名字
     private User user;
