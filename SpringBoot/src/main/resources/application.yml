@@ -4,3 +4,9 @@
 #    username: root
 #    password: 123456
 #    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#自定义对象
+myobj:
+  id: 1
+  name: 李四
+  age: 18
