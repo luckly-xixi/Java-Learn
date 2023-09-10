@@ -1,20 +1,19 @@
 package com.example.demo.model;
 
-
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
-public class Userinfo {
+public class Articleinfo {
     private int id;
-    private String username;
-    private String password;
-    private String photo;
+    private String title;
+    private String content;
     private LocalDateTime createtime;
     private LocalDateTime updatetime;
+    private int uid;
+    private int rcount;
     private int state;
-
-    private List<Articleinfo> aList;
+    //联表字段
+    private String username;
 }

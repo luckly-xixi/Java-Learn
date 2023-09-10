@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.UserMapper">
+
+    <resultMap id="BaseMap" type="com.example.demo.model.Userinfo">
+        <id column="id" property="id"></id>
+        <result column="username" property="username"></result>
+        <result column="password" property="password"></result>
+        <result column="photo" property="photo"></result>
+        <result column="createtime" property="createtime"></result>
+        <result column="updatetime" property="updatetime"></result>
+        <result column="state" property="state"></result>
+    </resultMap>
+    
     <select id="getAll" resultType="com.example.demo.model.Userinfo">
         select * from userinfo
+    </select>
+
+    <select id="getUserById" resultType="com.example.demo.model.Userinfo">
+<!--        select * from userinfo where id=${id}&lt;!&ndash;   这种方法（使用${}的方式来设置id底层直接是将JDBC的id替换）     -->
+        select * from userinfo where id=#{id}<!--   这种方法（使用#{}的方式来设置id底层是JDBC的id使用占位符来表示）     -->
+<!-- #{} 和 ${} 的区别：1.${}是即使执行，#{}是预执行; 2. ${}不能防止SQL注入 #{}可以防止SQL注入; 3.${}在使用非数值类型的时候必须在外面加'' #{}则不用 -->
+    </select>
+
+<!--  SQL注入  -->
+    <select id="login" resultType="com.example.demo.model.Userinfo">
+<!--    会出现SQL注入    -->
+<!--            select * from userinfo where username='${name}' and password='${word}'-->
+<!--    没有SQL注入问题    -->
+            select * from userinfo where username=#{name} and password=#{word}
+    </select>
+
+    <delete id="delById">
+        delete from username where id=#{id}
+    </delete>
+
+    <select id="gatAllByOrder" resultMap="BaseMap">
+        select * from userinfo order by id ${myorder}
+    </select>
+
+    <update id="update">
+        update userinfo set username=#{username} where id=#{id}
+    </update>
+
+    <insert id="add">
+        insert into userinfo(username,password,photo)
+        values(#{username},#{password},#{photo})
+    </insert>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into userinfo(username,password,photo)
+        values(#{username},#{password},#{photo})
+    </insert>
+
+    <select id="getLikeList" resultType="com.example.demo.model.Userinfo">
+        select * from userinfo where
+        username like concat('%',#{username},'%')
     </select>
 </mapper>
