@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.jws.soap.SOAPBinding;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -144,4 +145,53 @@ class UserMapperTest {
     }
 
 
+    @Test
+    void add2() {
+        Userinfo userinfo = new Userinfo();
+//        userinfo.setUsername("坤坤");
+//        userinfo.setPassword("123");
+//        userinfo.setPhoto("cat.png");
+        userinfo.setUsername("QWQ");
+        userinfo.setPassword("123");
+        int result = userMapper.add2(userinfo);
+        System.out.println("执行结果:" + result);
+    }
+
+    @Test
+    void add3() {
+        Userinfo userinfo = new Userinfo();
+        userinfo.setUsername("嘤嘤怪");
+        userinfo.setPassword("123");
+        int result = userMapper.add3(userinfo);
+        System.out.println("执行结果:" + result);
+    }
+
+    @Test
+    void getListByWhere() {
+        Userinfo userinfo = new Userinfo();
+//        userinfo.setId(1);
+        List<Userinfo> list = userMapper.getListByWhere(userinfo);
+        System.out.println(list);
+    }
+
+    @Test
+    void update2() {
+        Userinfo userinfo = new Userinfo();
+                userinfo.setId(2);
+        userinfo.setUsername("嘤嘤怪");
+//        userinfo.setPassword("123");
+        int result = userMapper.update2(userinfo);
+        System.out.println("执行结果:" + result);
+    }
+
+    @Test
+    void delByIds() {
+        List<Integer>  list = new ArrayList<Integer>(){{
+            add(4);
+            add(5);
+            add(6);
+        }};
+        int result = userMapper.delByIds(list);
+        System.out.println("执行结果:" + result);
+    }
 }

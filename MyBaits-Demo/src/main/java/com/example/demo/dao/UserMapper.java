@@ -41,4 +41,19 @@ public interface UserMapper {
 //     联合查询组件，混合使用注解和插件
     @Select("select * from userinfo where id=#{id}")
     Userinfo getUserById2(@Param("id")Integer id);
+
+//    动态 <if>标签
+    int add2(Userinfo userinfo);
+
+//    动态 <trim> 标签
+    int add3(Userinfo userinfo);
+
+//    动态 <where> 标签
+    List<Userinfo> getListByWhere(Userinfo userinfo);
+
+//    动态 <set> 标签
+    int update2(Userinfo userinfo);
+
+//    动态 <foreach> 标签
+    int delByIds(List<Integer> ids);
 }
