@@ -1,8 +1,110 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Stack;
+
 public class one {
 
     public static void main(String[] args) {
+        //合并两个排序的链表
+        public ListNode Merge (ListNode pHead1, ListNode pHead2) {
+            // write code here
+            //判断为空情况
+            if(pHead1 == null)return pHead2;
+            if(pHead2 == null)return pHead1;
+            if(pHead1 == null && pHead2 == null)return null;
+
+            ArrayList<Integer> list = new ArrayList<>();
+            while(pHead1 != null) {
+                list.add(pHead1.val);
+                pHead1 = pHead1.next;
+            }
+            while(pHead2 != null) {
+                list.add(pHead2.val);
+                pHead2 = pHead2.next;
+            }
+
+            Collections.sort(list);
+
+            ListNode newHead = new ListNode(list.get(0));
+            ListNode cur = newHead;
+            for(int i=1;i<list.size();i++) {
+                cur.next = new ListNode(list.get(i));
+                cur = cur.next;
+            }
+            return newHead;
+        }
+    }
+
+    public static void main3(String[] args) {
 
 
+//     链表中的节点每k个一组翻转
+        public ListNode reverseKGroup (ListNode head, int k) {
+            // write code here
+
+            //1.递归，由上而下递进 再由下而上回归
+            //分组
+            ListNode tail = head;
+            for(int i=0;i<k;i++){
+                //不够k的情况
+                if(tail == null)return head;
+                tail = tail.next;
+            }
+            //创建前序和当前节点
+            ListNode pre = null;
+            ListNode cur = head;
+            //反转
+            while(cur != tail) {
+                ListNode temp = cur.next;
+                cur.next = pre;
+                pre = cur;
+                cur = temp;
+            }
+            head.next = reverseKGroup(tail,k);
+            return pre;
+
+
+            //2.非递归
+            //先创建一个哑巴节点，让其指向头节点
+            ListNode dummy = new ListNode(0);
+            dummy.next = head;
+            //前序节点和末尾节点
+            ListNode pre = dummy;
+            ListNode end = dummy;
+            //整个的大循环
+            while(end.next != null) {
+                //分组
+                for(int i=0;i<k&&end!=null;i++)end = end.next;
+                //不够k个，直接结束
+                if(end == null)break;
+                //反转开始的节点
+                ListNode start = pre.next;
+                ListNode next = end.next;//下次循环的头节点
+                //断开与下一组的连接
+                end.next = null;
+                //反转该组
+                pre.next = reverse(start);
+
+                //进入下一轮，重置下一轮开始反转的各个节点
+                start.next = next;
+                //经过反转pre已经是上一组的尾节点了
+                pre = start;
+                end = start;
+            }
+            return dummy.next;
+        }
+        private ListNode reverse(ListNode head) {
+            ListNode pre = null;
+            ListNode cur = head;
+            while(cur != null) {
+                ListNode temp = cur.next;
+                cur.next = pre;
+                pre = cur;
+                cur = temp;
+            }
+            return pre;
+        }
+        }
     }
 
 
