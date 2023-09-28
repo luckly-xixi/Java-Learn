@@ -87,4 +87,8 @@ public class JunitTest {
         System.out.println(num + ":" + name);
     }
 
+
+    void Test() {
+
+    }
 }
