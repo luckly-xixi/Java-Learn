@@ -89,6 +89,6 @@ public class JunitTest {
 
 
     void Test() {
-
+        System.out.println("");
     }
 }
