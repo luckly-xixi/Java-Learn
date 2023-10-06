@@ -4,10 +4,11 @@ import java.util.logging.Level;
 public class coding_TreeNode {
 
 
-    class Node {
+    static class Node {
         int value;
         Node left;
         Node right;
+        Node parent;
         Node(int val) {
             value = val;
         }
@@ -389,5 +390,50 @@ public static class Info {
             node = node.left;
         }
         return node;
+    }
+
+
+//序列化(前序)
+    public static String serialByPre(Node head) {
+        if(head == null) {
+            return "#_";
+        }
+        String res = head.value + "_";
+        res += serialByPre(head.left);
+        res += serialByPre(head.right);
+        return res;
+    }
+
+
+
+//反序列化(前序)
+    public static Node reconByPreString(String preStr) {
+        String[] values = preStr.split("_");
+        Queue<String> queue = new LinkedList<String>();
+        for(int i=0; i!=values.length; i++) {
+            queue.add(values[i]);
+        }
+        return reconPreOrder(queue);
+    }
+    public static Node reconPreOrder(Queue<String> queue) {
+        String value = queue.poll();
+        if(value.equals("#")) {
+            return null;
+        }
+        Node head = new Node(Integer.valueOf(value));
+        head.left = reconPreOrder(queue);
+        head.right = reconPreOrder(queue);
+        return head;
+    }
+
+
+//微软折纸问题(中序)
+    public static void printProcess(int i,int N, boolean down) {
+        if(i > N) {
+            return;
+        }
+        printProcess(i+1,N,true);
+        System.out.println(down ? "凹" : "凸");
+        printProcess(i+1,N,down);
     }
 }
