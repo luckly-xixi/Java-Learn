@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.logging.Level;
 
 public class coding_TreeNode {
 
@@ -336,7 +335,7 @@ public static class Info {
         return cur;
     }
 
-    public static void process5(Node head,HashMap<Node,Node> fatherMap) {
+    public static void process5(Node head, HashMap<Node,Node> fatherMap) {
         if(head == null) {
             return;
         }
