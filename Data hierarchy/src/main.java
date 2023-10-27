@@ -6,7 +6,7 @@ public class main {
 
 
     //有序表所有操作都是O(logN)级别
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
 
         //放在有序表的东西，如果是基础类型的，内部按照值传递，内存占用就是这个东西的大小
         //如果是非基础类型的，必须提供比较器，内部按照引用传递，内存占用是这个东西的内存地址的大小
@@ -63,7 +63,7 @@ public class main {
     }
 
     //排序算法
-    public static void main1(String[] args) {
+    public static void main18(String[] args) {
         int[] arr = {2,4,5,1,3,6,8,7,9,0};
         int[] arr2 = {1,3,4,2,5};
 //        sort1_selectionSort.selectionSort(arr);
