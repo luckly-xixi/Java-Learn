@@ -1,10 +1,7 @@
 import com.sun.org.apache.xpath.internal.Arg;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
 
 import javax.swing.*;
 import java.util.stream.Stream;
@@ -35,7 +32,7 @@ public class JunitTest {
 
     @AfterAll
     static void TearDown() {
-        System.out.println("BeforEach 标签是 在执行测试方法之后的后置方法，也就是说，所有的测试执行完之后后只执行一次AfterAll");
+        System.out.println("AfterAll 标签是 在执行测试方法之后的后置方法，也就是说，所有的测试执行完之后后只执行一次AfterAll");
         System.out.println("关闭资源在后，如关闭数据库连接、关闭浏览器等");
     }
 
@@ -63,6 +60,15 @@ public class JunitTest {
     @ValueSource(strings = {"1","2","3"})
     void Test3(String number) {
         System.out.println(number);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"1,2,3,4"})
+    void Test7(String x, String y, String z, int q) {
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println(z);
+        System.out.println(q);
     }
 
     @ParameterizedTest
