@@ -127,4 +127,71 @@ public class Demo {
 
         return dummy.next;
     }
+
+
+    // 3.链表中每K个为一组反转
+    // 递归
+    public ListNode reverseKGroup1 (ListNode head, int k) {
+        ListNode tail = head;
+        for (int i = 0; i < k; i++) {
+            if(tail == null) {
+                return head;
+            }
+            tail = tail.next;
+        }
+
+        ListNode pre = null;
+        ListNode cur = head;
+        while(cur != tail) {
+            ListNode tmp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+
+        head.next = reverseKGroup1(tail, k);
+        return pre;
+    }
+
+    // 非递归
+    public ListNode reverseKGroup2 (ListNode head, int k) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode pre = dummy;
+        ListNode end = dummy;
+
+        while(end.next != null) {
+            for(int i=0; i<k && end!=null; i++) {
+                end = end.next;
+            }
+            if(end == null) {
+                break;
+            }
+
+            ListNode start = pre.next;
+            ListNode next = end.next;
+
+            end.next = null;
+            pre.next = reverse(start);
+
+            start.next = next;
+            pre = start;
+            end = start;
+        }
+        return dummy.next;
+    }
+
+    private ListNode reverse(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur != null) {
+            ListNode tmp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        return pre;
+    }
+
 }
