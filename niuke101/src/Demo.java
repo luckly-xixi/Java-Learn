@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -192,6 +193,69 @@ public class Demo {
             cur = tmp;
         }
         return pre;
+    }
+
+    // 4. 合并两个排序的链表
+    public ListNode Merge1 (ListNode pHead1, ListNode pHead2) {
+
+        if(pHead1 == null || pHead2 == null) {
+            return pHead1 == null ? pHead2 : pHead1;
+        }
+
+        if(pHead1.val <= pHead2.val) {
+            pHead1.next = Merge1(pHead1.next, pHead2);
+            return  pHead1;
+        } else {
+            pHead2.next = Merge1(pHead1, pHead2.next);
+            return pHead2;
+        }
+    }
+
+    // 5.合并k个已排序的链表
+    // 归并排序
+
+    private ListNode Merge2(ListNode list1, ListNode list2) {
+        if(list1 == null || list2 == null) {
+            return list1 == null ? list2 : list1;
+        }
+        ListNode dummy = new ListNode(0);
+        ListNode cur = dummy;
+
+        while(list1 != null && list2 != null) {
+            if(list1.val <= list2.val) {
+                cur.next = list1;
+                list1 = list1.next;
+            } else {
+                cur.next = list2;
+                list2 = list2.next;
+            }
+            cur = cur.next;
+        }
+
+        if(list1 != null) {
+            cur.next = list1;
+        }
+        if(list2 != null) {
+            cur.next = list2;
+        }
+        return dummy.next;
+    }
+
+    private ListNode divideMerge(ArrayList<ListNode> lists, int left, int right) {
+        if(left > right) {
+            return null;
+        }
+        if(left == right) {
+            return lists.get(left);
+        }
+
+        int mid = (left + right) / 2;
+        return Merge2(divideMerge(lists, left, mid), divideMerge(lists,mid+1, right));
+    }
+
+
+    public ListNode mergeKLists(ArrayList<ListNode> lists) {
+        return divideMerge(lists, 0, lists.size()-1);
     }
 
 }
