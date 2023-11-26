@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 class ListNode {
     int val;
@@ -254,8 +252,83 @@ public class Demo {
     }
 
 
-    public ListNode mergeKLists(ArrayList<ListNode> lists) {
+    public ListNode mergeKLists1(ArrayList<ListNode> lists) {
         return divideMerge(lists, 0, lists.size()-1);
     }
 
-}
+    // 优先级队列
+    public ListNode mergeKLists2(ArrayList<ListNode> lists) {
+        Queue<ListNode> pq = new PriorityQueue<>((v1, v2) -> v1.val - v2.val);
+
+        for(int i=0; i<lists.size(); i++) {
+            if(lists.get(i) != null) {
+                pq.add(lists.get(i));
+            }
+        }
+
+        ListNode res = new ListNode(0);
+        ListNode head = res;
+
+        while(!pq.isEmpty()) {
+            ListNode tmp = pq.poll();
+            head.next = tmp;
+            head = head.next;
+
+            if(tmp.next != null) {
+                pq.add(tmp.next);
+            }
+        }
+    return res.next;
+    }
+
+    // 6. 判断链表中是否有环
+    // 快慢指针
+    public boolean hasCycle1(ListNode head) {
+        if(head == null) {
+            return false;
+        }
+
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if(fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 集合
+    public boolean hasCycle2(ListNode head) {
+        Set<ListNode> set = new HashSet<>();
+
+        while(head != null) {
+            if(set.contains(head)) {
+                return true;
+            }
+            set.add(head);
+            head = head.next;
+        }
+
+        return false;
+    }
+
+    // 逐个删除
+    public boolean hasCycle3(ListNode head) {
+        if(head == null || head.next == null) {
+            return false;
+        }
+        if(head.next == head) {
+            return true;
+        }
+
+        ListNode nextNode = head.next;
+        head.next = head;
+        return hasCycle3(nextNode);
+    }
+
+    }
