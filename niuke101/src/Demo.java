@@ -331,4 +331,12 @@ public class Demo {
         return hasCycle3(nextNode);
     }
 
+
+    // 7.链表中环的入口结点
+    //
+    public ListNode EntryNodeOfLoop(ListNode pHead) {
+
+    }
+
+
     }
