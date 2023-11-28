@@ -333,10 +333,106 @@ public class Demo {
 
 
     // 7.链表中环的入口结点
-    //
-    public ListNode EntryNodeOfLoop(ListNode pHead) {
+    // 快慢指针
 
+    private ListNode hasCycle(ListNode pHead) {
+        if(pHead == null) {
+            return null;
+        }
+
+        ListNode fast = pHead;
+        ListNode slow = pHead;
+
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) {
+                return slow;
+            }
+        }
+            return null;
     }
 
+    public ListNode EntryNodeOfLoop(ListNode pHead) {
+        ListNode slow = hasCycle(pHead);
+
+        if(slow == null) {
+            return null;
+        }
+
+        ListNode fast = pHead;
+
+        while(fast != slow) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    // 8. 链表中倒数最后k个结点
+    // 快慢指针
+    public ListNode FindKthToTail1 (ListNode pHead, int k) {
+
+        ListNode fast = pHead;
+        for (int i = 0; i < k; i++) {
+            if(fast == null) {
+                return null;
+            }
+            else {
+                fast = fast.next;
+            }
+        }
+
+        ListNode slow = pHead;
+        while(fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    // 栈实现
+    public ListNode FindKthToTail2 (ListNode pHead, int k) {
+        Stack<ListNode> stack = new Stack<>();
+        int count = 0;
+        while(pHead != null) {
+            stack.push(pHead);
+            pHead = pHead.next;
+            count++;
+        }
+
+        if(count <k || k == 0) {
+            return null;
+        }
+
+        ListNode firstNode = stack.pop();
+        while (--k > 0) {
+            ListNode tmp = stack.pop();
+            tmp.next = firstNode;
+            firstNode = tmp;
+        }
+
+        return firstNode;
+    }
+
+    // 递归实现
+    int size;
+    public ListNode FindKthToTail3 (ListNode pHead, int k) {
+        if(pHead == null) {
+            return null;
+        }
+
+        ListNode node = FindKthToTail3(pHead.next, k);
+        ++size;
+
+        if(size < k) {
+            return null;
+        } else if(size == k) {
+            return pHead;
+        } else {
+            return node;
+        }
+
+    }
 
     }
