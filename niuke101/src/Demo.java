@@ -435,4 +435,81 @@ public class Demo {
 
     }
 
+
+    // 9. 删除链表的倒数第n个节点
+    // 双指针
+    public ListNode removeNthFromEnd1 (ListNode head, int n) {
+        ListNode res = new ListNode(-1);
+        res.next = head;
+
+        ListNode fast = head;
+        ListNode pre = res;
+        ListNode cur = head;
+
+        while(n != 0) {
+            fast = fast.next;
+            n--;
+        }
+
+        while(fast != null) {
+            fast = fast.next;
+            pre = cur;
+            cur = cur.next;
+        }
+
+        pre.next = cur.next;
+        return res.next;
     }
+
+
+    // 长度统计
+    public ListNode removeNthFromEnd2 (ListNode head, int n) {
+        ListNode res = new ListNode(-1);
+        res.next = head;
+
+        int length = 0;
+
+        ListNode cur = head;
+        while(cur != null) {
+            cur = cur.next;
+            length++;
+        }
+        cur = res;
+
+        for(int i=0; i<length-n; i++) {
+            cur = cur.next;
+        }
+        cur.next = cur.next.next;
+
+        return res.next;
+    }
+
+
+    // 递归
+    public ListNode removeNthFromEnd (ListNode head, int n) {
+        int pos = length(head, n);
+        if(pos == n) {
+            return head.next;
+        }
+        return head;
+    }
+
+    private int length(ListNode head, int n) {
+        if(head == null) {
+            return 0;
+        }
+        int pos = length(head.next, n) + 1;
+
+        if(pos == n+1) {
+            head.next = head.next.next;
+        }
+        return pos;
+    }
+
+
+    // 10. 两个链表的第一个公共结点
+    //
+    //
+    //
+    //
+}

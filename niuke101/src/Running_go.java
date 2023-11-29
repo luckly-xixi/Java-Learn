@@ -25,8 +25,7 @@ public class Running_go {
 
         ListNode head = new ListNode(0);
         head.next = new ListNode(1);
-        head.next.next = new ListNode(0);
-        head.next.next.next = new ListNode(1);
-        demo.hasCycle2(head);
+        head.next.next = new ListNode(2);
+        demo.removeNthFromEnd(head, 2);
     }
 }
