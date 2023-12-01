@@ -508,8 +508,8 @@ public class Demo {
 
 
     // 10. 两个链表的第一个公共结点
-    //
-    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+    // 双指针
+    public ListNode FindFirstCommonNode1(ListNode pHead1, ListNode pHead2) {
 
         ListNode l1 = pHead1, l2 = pHead2;
         while(l1 != l2) {
@@ -519,7 +519,56 @@ public class Demo {
         return l1;
 
     }
-    //
-    //
-    //
-}
+
+
+    // Set
+    public ListNode FindFirstCommonNode2(ListNode pHead1, ListNode pHead2) {
+        Set<ListNode> set = new HashSet<>();
+
+        while(pHead1 != null) {
+            set.add(pHead1);
+            pHead1 = pHead1.next;
+        }
+
+        while(pHead2 != null) {
+            if(set.contains(pHead2)) {
+                return pHead2;
+            }
+            pHead2 = pHead2.next;
+        }
+        return null;
+    }
+
+    // 统计长度
+    public ListNode FindFirstCommonNode3(ListNode pHead1, ListNode pHead2) {
+
+        int lenA = length1(pHead1), lenB = length1(pHead2);
+
+        while(lenA != lenB) {
+            if(lenA > lenB) {
+                pHead1 = pHead1.next;
+                lenA--;
+            } else {
+                pHead2 = pHead2.next;
+                lenB--;
+            }
+        }
+
+        while(pHead1 != pHead2) {
+            pHead1 = pHead1.next;
+            pHead2 = pHead2.next;
+        }
+
+        return pHead1;
+    }
+
+    private int length1(ListNode node) {
+        int length = 0;
+        while(node != null) {
+            node = node.next;
+            length++;
+        }
+        return length;
+    }
+
+    }
