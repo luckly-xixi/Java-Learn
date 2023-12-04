@@ -571,4 +571,81 @@ public class Demo {
         return length;
     }
 
+
+    // 11.链表相加
+
+    public ListNode addInList (ListNode head1, ListNode head2) {
+        if(head1 == null) {
+            return head2;
+        }
+        if(head2 == null) {
+            return head1;
+        }
+
+        head1 = ReverseList1(head1);
+        head2 = ReverseList1(head2);
+
+        ListNode res = new ListNode(-1);
+        ListNode head = res;
+
+        int carry = 0;
+
+        while(head1 != null || head2 != null || carry != 0) {
+            int val1 = head1 == null ? 0 : head1.val;
+            int val2 = head2 == null ? 0 : head2.val;
+
+            int tmp = val1 + val2 + carry;
+            carry = tmp / 10;
+            tmp %= 10;
+
+            head.next = new ListNode(tmp);
+            head = head.next;
+
+            if(head1 != null) {
+                head1 = head1.next;
+            }
+            if(head2 != null) {
+                head2 = head2.next;
+            }
+        }
+
+        return ReverseList1(res.next);
+    }
+
+    // 12. 单链表的排序
+    public ListNode sortInList (ListNode head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode fast = head.next, slow = head;
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode tmp = slow.next;
+        slow.next = null;
+
+        ListNode left = sortInList(head);
+        ListNode right = sortInList(tmp);
+
+        ListNode h = new ListNode(0);
+        ListNode res = h;
+
+        while(left != null && right != null) {
+            if(left.val < right.val) {
+                h.next = left;
+                left = left.next;
+            } else {
+                h.next = right;
+                right = right.next;
+            }
+            h = h.next;
+        }
+
+        h.next = left != null ? left : right;
+        return res.next;
+    }
+
     }
