@@ -612,6 +612,8 @@ public class Demo {
         return ReverseList1(res.next);
     }
 
+
+
     // 12. 单链表的排序
     public ListNode sortInList (ListNode head) {
         if(head == null || head.next == null) {
@@ -647,5 +649,104 @@ public class Demo {
         h.next = left != null ? left : right;
         return res.next;
     }
+
+
+    // 13. 判断一个链表是否为回文结构
+    // 反转对比
+    public boolean isPail1 (ListNode head) {
+        ArrayList<Integer> nums = new ArrayList<>();
+        while(head != null) {
+            nums.add(head.val);
+            head = head.next;
+        }
+
+        ArrayList<Integer> tmp = new ArrayList<>();
+        tmp = (ArrayList<Integer>) nums.clone();
+
+        Collections.reverse(tmp);
+
+        for(int i=0; i<nums.size(); i++) {
+            int x = nums.get(i);
+            int y = tmp.get(i);
+            if(x != y) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // 对撞指针
+    public boolean isPail2 (ListNode head) {
+        ArrayList<Integer> nums = new ArrayList<>();
+        while(head != null) {
+            nums.add(head.val);
+            head = head.next;
+        }
+
+        int left = 0;
+        int right = nums.size() - 1;
+
+        while(left <= right) {
+            int x = nums.get(left);
+            int y = nums.get(right);
+            if(x != y) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    // 双指针找中点
+    public boolean isPail3 (ListNode head) {
+        if(head == null) {
+            return true;
+        }
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        slow = reverse(slow);
+        fast = head;
+
+        while(slow != null) {
+            if(slow.val != fast.val) {
+                return false;
+            }
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return true;
+    }
+
+
+    // 14. 链表的奇偶重排
+
+    public ListNode oddEvenList (ListNode head) {
+        if(head == null) {
+            return head;
+        }
+
+        ListNode even = head.next;
+        ListNode odd = head;
+
+        ListNode evenhead = even;
+
+        while(even.next != null && even != null) {
+            odd.next = even.next;
+            odd = odd.next;
+            even.next = odd.next;
+            even = even.next;
+        }
+        odd.next = evenhead;
+        return head;
+    }
+
 
     }
