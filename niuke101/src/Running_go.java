@@ -23,9 +23,10 @@ public class Running_go {
 //        a.add(two);
 //        ListNode p = demo.mergeKLists2(a);
 
-        ListNode head = new ListNode(0);
-        head.next = new ListNode(1);
-        head.next.next = new ListNode(2);
-        demo.removeNthFromEnd(head, 2);
+//        ListNode head = new ListNode(0);
+//        head.next = new ListNode(1);
+//        head.next.next = new ListNode(2);
+//        demo.removeNthFromEnd(head, 2);
+
     }
 }

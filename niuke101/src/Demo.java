@@ -1,3 +1,4 @@
+import javax.xml.soap.SAAJResult;
 import java.util.*;
 
 class ListNode {
@@ -738,7 +739,7 @@ public class Demo {
 
         ListNode evenhead = even;
 
-        while(even.next != null && even != null) {
+        while(even != null && even.next != null) {
             odd.next = even.next;
             odd = odd.next;
             even.next = odd.next;
@@ -746,6 +747,88 @@ public class Demo {
         }
         odd.next = evenhead;
         return head;
+    }
+
+
+    // 15.  删除有序链表中重复的元素 - Ⅰ
+
+    public ListNode deleteDuplicates1 (ListNode head) {
+        if(head == null ) {
+            return null;
+        }
+
+        ListNode cur = head;
+
+        while(cur != null && cur.next != null) {
+            if(cur.val == cur.next.val) {
+                cur.next = cur.next.next;
+            } else {
+                cur = cur.next;
+            }
+        }
+
+        return head;
+    }
+
+
+
+    // 16. 删除有序链表中重复的元素 - Ⅱ
+    // 正常遍历跳过
+    public ListNode deleteDuplicates2 (ListNode head) {
+        if(head == null) {
+            return null;
+        }
+
+        ListNode res = new ListNode(0);
+        res.next = head;
+
+        ListNode cur = res;
+
+        while(cur.next != null && cur.next.next != null) {
+            if(cur.next.val == cur.next.next.val) {
+                int tmp = cur.next.val;
+                while(cur.next != null && cur.next.val == tmp){
+                    cur.next = cur.next.next;
+                }
+            } else {
+                cur = cur.next;
+            }
+        }
+
+        return res.next;
+    }
+
+    // 哈希表
+    public ListNode deleteDuplicates3 (ListNode head) {
+        if(head == null) {
+            return null;
+        }
+
+        Map<Integer, Integer> mp = new HashMap<>();
+        ListNode cur = head;
+
+        while(cur != null) {
+            if(mp.containsKey(cur.val)) {
+                mp.put(cur.val, (int)mp.get(cur.val) + 1);
+            } else {
+                mp.put(cur.val, 1);
+            }
+            cur = cur.next;
+        }
+
+        ListNode res = new ListNode(0);
+        res.next = head;
+        cur = res;
+
+        while(cur.next != null) {
+            if(mp.get(cur.next.val) != 1) {
+                cur.next = cur.next.next;
+            } else {
+                cur = cur.next;
+            }
+        }
+
+        return res.next;
     }
 
 
