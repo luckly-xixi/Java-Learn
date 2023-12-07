@@ -832,4 +832,75 @@ public class Demo {
     }
 
 
+    // 17. 二分查找
+    public int search (int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while(left <= right) {
+            int mid = (left + right) / 2;
+
+            if(nums[mid] == target) {
+                return mid;
+            }
+
+            if(nums[mid] > target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+
+    // 18. 二维数组中的查找
+
+    public boolean Find (int target, int[][] array) {
+        if(array.length == 0) {
+            return false;
+        }
+
+        int n = array.length;
+        if(array[0].length == 0) {
+            return false;
+        }
+        int m = array[0].length;
+
+        for(int i=n-1, j=0; i>=0 && j<m; ) {
+            if(array[i][j] > target) {
+                i--;
+            } else if(array[i][j] < target) {
+                j++;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    // 19. 寻找峰值
+    public int findPeakElement (int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while(left < right) {
+            int mid = (left + right) / 2;
+            if(nums[mid] > nums[mid+1]) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return right;
+    }
+
+
+    // 20. 数组中的逆序对
+    public int InversePairs (int[] nums) {
+
+    }
+
+
     }
