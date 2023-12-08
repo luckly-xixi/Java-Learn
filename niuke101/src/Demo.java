@@ -1,6 +1,8 @@
 import javax.xml.soap.SAAJResult;
 import java.util.*;
 
+import static java.util.Arrays.mergeSort;
+
 class ListNode {
     int val;
     ListNode next = null;
@@ -898,9 +900,35 @@ public class Demo {
 
 
     // 20. 数组中的逆序对
+    public int mod = 1000000007;
+
+    private int mergeSort(int left, int right, int[] data, int[] tmp) {
+        if(left >= right) {
+            return 0;
+        }
+        int mid = (left + right) / 2;
+
+        int res = mergeSort(left, mid, data, tmp) + mergeSort(mid+1, right, data, tmp);
+        res %= mod;
+
+        int i = left, j = mid + 1;
+        for(int k=left; k<right; k++) {
+            tmp[k] = data[k];
+        }
+
+        for(int k=left; k<right; k++) {
+            if(i == mid+1) {
+                data[k] = tmp[j++];
+            }
+        }
+    }
+
     public int InversePairs (int[] nums) {
-
+         int n = nums.length;
+         int[] res = new int[n];
+         return mergeSort(0, n-1, nums, res);
     }
 
 
-    }
+
+}
