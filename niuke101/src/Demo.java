@@ -1,7 +1,6 @@
 import javax.xml.soap.SAAJResult;
 import java.util.*;
 
-import static java.util.Arrays.mergeSort;
 
 class ListNode {
     int val;
@@ -906,21 +905,27 @@ public class Demo {
         if(left >= right) {
             return 0;
         }
-        int mid = (left + right) / 2;
+        int mid = (left + right) / 2; // ((right - left) >> 2) + left;
 
         int res = mergeSort(left, mid, data, tmp) + mergeSort(mid+1, right, data, tmp);
         res %= mod;
 
         int i = left, j = mid + 1;
-        for(int k=left; k<right; k++) {
+        for(int k=left; k<=right; k++) {
             tmp[k] = data[k];
         }
 
-        for(int k=left; k<right; k++) {
-            if(i == mid+1) {
+        for(int k=left; k<=right; k++) {
+            if(i == mid+1) { /*左边走完*/
                 data[k] = tmp[j++];
+            } else if(j == right +1 /*右边走完*/ || tmp[i] <= tmp[j]) {
+                data[k] = tmp[i++];
+            } else { // tmp[i] > tmp[j]
+                data[k] = tmp[j++];
+                res += mid - i + 1;
             }
         }
+        return res % mod;
     }
 
     public int InversePairs (int[] nums) {
@@ -929,6 +934,92 @@ public class Demo {
          return mergeSort(0, n-1, nums, res);
     }
 
+    // 21. 旋转数组的最小数字
+
+    public int minNumberInRotateArray (int[] nums) {
+
+        if(nums.length == 0) {
+            return 0;
+        }
+
+        int left = 0;
+        int right = nums.length-1;
+
+        while(left < right) {
+            int mid = ((right - left) >> 2) + left;
+
+            if(nums[mid] > nums[right]) {
+                left = mid + 1;
+            } else if (nums[mid] == nums[right]) {
+                right--;
+            } else {
+                right = mid;
+            }
+        }
+        return nums[left];
+    }
+
+    // 22. 比较版本号
+    // 双指针
+    public int compare1 (String version1, String version2) {
+        int n1 = version1.length();
+        int n2 = version2.length();
+
+        int i = 0, j = 0;
+        while(i<n1 || j<n2) {
+            long num1 = 0;
+            while(i<n1 && version1.charAt(i) != '.') {
+                num1 = num1 * 10 + (version1.charAt(i) - '0');
+                i++;
+            }
+            i++;
+
+            long num2 = 0;
+            while(j<n2 && version2.charAt(j) != '.') {
+                num2 = num2 * 10 + (version2.charAt(j) - '0');
+                j++;
+            }
+            j++;
+
+            if(num1 < num2) {
+                return -1;
+            }
+            if(num1 > num2) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    // 分割
+    public int compare (String version1, String version2) {
+        String[] nums1 = version1.split("\\.");
+        String[] nums2 = version2.split("\\.");
+
+        for(int i=0; i<nums1.length || i<nums2.length; i++) {
+            String str1 = i < nums1.length ? nums1[i] : "0";
+            String str2 = i < nums2.length ? nums2[i] : "0";
+
+            long num1 = 0;
+            for(int j=0; j<str1.length(); j++) {
+                num1 = num1 * 10 + (str1.charAt(j) - '0');
+            }
+
+            long num2 = 0;
+            for(int j=0; j<str2.length(); j++) {
+                num2 = num2 * 10 + (str2.charAt(j) - '0');
+            }
+
+            if(num1 > num2) {
+                return 1;
+            }
+            if(num1 < num2) {
+                return -1;
+            }
+        }
+        return 0;
+    }
 
 
-}
+
+    }
