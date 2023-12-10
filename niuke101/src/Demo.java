@@ -1,3 +1,4 @@
+import javax.swing.tree.TreeNode;
 import javax.xml.soap.SAAJResult;
 import java.util.*;
 
@@ -1021,5 +1022,190 @@ public class Demo {
     }
 
 
+    // 23. 画出流程图、给出完整的程序代码、截图说明程序功能的实现结果。
+    class TreeNode {
+
+        int val = 0;
+        TreeNode left = null;
+        TreeNode right = null;
+
+        public TreeNode(int val) {
+          this.val = val;
+        }
+
+    }
+
+    // 递归
+    private void preoder(List<Integer> list, TreeNode root) {
+        if(root == null) {
+            return;
+        }
+
+        list.add(root.val);
+
+        preoder(list, root.left);
+        preoder(list, root.right);
+    }
+
+    public int[] preorderTraversal1 (TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+
+        preoder(list, root);
+
+        int[] res = new int[list.size()];
+        for(int i=0; i<list.size(); i++) {
+            res[i] = list.get(i);
+        }
+        return res;
+    }
+
+
+    // 非递归(栈)
+
+    public int[] preorderTraversal (TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+
+        if(root == null) {
+            return new int[0];
+        }
+
+        stack.push(root);
+
+        while(!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            list.add(node.val);
+
+            if(node.right != null) {
+                stack.push(node.right);
+            }
+
+            if(node.left != null) {
+                stack.push(node.left);
+            }
+        }
+
+        int[] res = new int[list.size()];
+
+        for(int i=0; i<list.size(); i++) {
+            res[i] = list.get(i);
+        }
+        return res;
+    }
+
+
+    // 24. 二叉树的中序遍历
+    // 递归
+
+    private void inorder(List<Integer> list, TreeNode root) {
+        if(root == null) {
+            return;
+        }
+
+        inorder(list, root.left);
+
+        list.add(root.val);
+
+        inorder(list, root.right);
+    }
+
+
+    public int[] inorderTraversal1 (TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+
+        inorder(list, root);
+
+        int[] res = new int[list.size()];
+
+        for(int i=0; i<list.size(); i++) {
+            res[i] = list.get(i);
+        }
+
+        return res;
+    }
+
+    // 非递归（栈）
+    public int[] inorderTraversal (TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+
+        if(root == null) {
+            return new int[0];
+        }
+
+        while(root != null || !stack.isEmpty()) {
+            while(root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+
+            TreeNode node = stack.pop();
+            root = root.right;
+        }
+
+        int[] res = new int[list.size()];
+        for(int i=0; i<list.size(); i++) {
+            res[i] = list.get(i);
+        }
+        return res;
+    }
+
+
+    // 25. 二叉树的后序遍历
+    // 递归
+
+    private void postorder(List<Integer> list, TreeNode root) {
+        if(root == null) {
+            return;
+        }
+
+        postorder(list, root.left);
+        postorder(list, root.right);
+
+        list.add(root.val);
+    }
+
+
+    public int[] postorderTraversal1 (TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+
+        postorder(list, root);
+
+        int[] res = new int[list.size()];
+        for(int i=0; i<list.size(); i++) {
+            res[i] = list.get(i);
+        }
+        return res;
+    }
+
+    // 非递归（栈）
+    public int[] postorderTraversal (TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode pre = null;
+
+        while(!stack.isEmpty() || root != null) {
+            while(root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+
+            TreeNode node = stack.pop();
+
+            if(node.right == null || node.right == pre) {
+                list.add(node.val);
+                pre = node;
+            } else {
+                stack.push(node);
+                root = node.right;
+            }
+        }
+
+        int[] res = new int[list.size()];
+        for(int i=0; i<list.size(); i++) {
+            res[i] = list.get(i);
+        }
+        return res;
+    }
 
     }
