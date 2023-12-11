@@ -1208,4 +1208,55 @@ public class Demo {
         return res;
     }
 
+
+    // 26. 层序遍历
+    // 非递归(双端队列)
+    public ArrayList<ArrayList<Integer>> levelOrder (TreeNode root) {
+        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+        if(root == null) {
+            return res;
+        }
+
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        while(!queue.isEmpty()) {
+            ArrayList<Integer> row = new ArrayList<>();
+            int n = queue.size();
+
+            for(int i=0; i<n; i++) {
+                TreeNode cur = queue.poll();
+                row.add(cur.val);
+
+                if(cur.left != null) {
+                    queue.add(cur.left);
+                }
+                if(cur.right != null) {
+                    queue.add(cur.right);
+                }
+            }
+            res.add(row);
+        }
+        return res;
     }
+
+
+
+    // 递归
+
+    ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+
+    private void traverse(TreeNode root, int depth) {
+
+    }
+
+    public ArrayList<ArrayList<Integer>> levelOrder (TreeNode root) {
+        if(root == null) {
+            return res;
+        }
+        traverse(root.left, 1);
+        return res;
+    }
+
+
+}
