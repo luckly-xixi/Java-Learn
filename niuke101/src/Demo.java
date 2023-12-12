@@ -1211,7 +1211,7 @@ public class Demo {
 
     // 26. 层序遍历
     // 非递归(双端队列)
-    public ArrayList<ArrayList<Integer>> levelOrder (TreeNode root) {
+    public ArrayList<ArrayList<Integer>> levelOrder1 (TreeNode root) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
         if(root == null) {
             return res;
@@ -1248,15 +1248,76 @@ public class Demo {
 
     private void traverse(TreeNode root, int depth) {
 
+        if(root != null) {
+
+            if(res.size() < depth) {
+                ArrayList<Integer> row =  new ArrayList<>();
+                res.add(row);
+                row.add(root.val);
+            } else {
+                ArrayList<Integer> row = res.get(depth - 1);
+                row.add(root.val);
+            }
+
+        } else {
+            return;
+        }
+
+        traverse(root.left, depth + 1);
+        traverse(root.right, depth + 1);
     }
 
     public ArrayList<ArrayList<Integer>> levelOrder (TreeNode root) {
         if(root == null) {
             return res;
         }
-        traverse(root.left, 1);
+
+        traverse(root, 1);
+
         return res;
     }
 
 
-}
+    // 27. 按之字形顺序打印二叉树
+
+    // 非递归
+    public ArrayList<ArrayList<Integer>> Print (TreeNode pRoot) {
+        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+        TreeNode head = pRoot;
+        if(head == null) {
+            return res;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(head);
+        TreeNode p;
+
+        boolean flag = true;
+
+        while(!queue.isEmpty()) {
+            ArrayList<Integer> row = new ArrayList<>();
+            int n = queue.size();
+            flag = !flag;
+
+            for (int i = 0; i < n; i++) {
+
+                p = queue.poll();
+                row.add(p.val);
+
+                if(p.left != null) {
+                    queue.add(p.left);
+                }
+                if(p.right != null) {
+                    queue.add(p.right);
+                }
+            }
+            if(flag) {
+                Collections.reverse(row);
+            }
+            res.add(row);
+        }
+        return res;
+    }
+
+
+    }
