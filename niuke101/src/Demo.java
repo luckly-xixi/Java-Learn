@@ -1280,8 +1280,8 @@ public class Demo {
 
     // 27. 按之字形顺序打印二叉树
 
-    // 非递归
-    public ArrayList<ArrayList<Integer>> Print (TreeNode pRoot) {
+    // 队列
+    public ArrayList<ArrayList<Integer>> Print1 (TreeNode pRoot) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
         TreeNode head = pRoot;
         if(head == null) {
@@ -1319,5 +1319,55 @@ public class Demo {
         return res;
     }
 
+
+    // 双栈
+    public ArrayList<ArrayList<Integer>> Print (TreeNode pRoot) {
+        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+        TreeNode head = pRoot;
+        if(head == null) {
+            return res;
+        }
+
+        Stack<TreeNode> stack1 = new Stack<>();
+        Stack<TreeNode> stack2 = new Stack<>();
+        stack1.push(head);
+
+        while(!stack1.isEmpty() || !stack2.isEmpty()) {
+            ArrayList<Integer> tmp = new ArrayList<>();
+
+            while(!stack1.isEmpty()) {
+                TreeNode node = stack1.pop();
+                tmp.add(node.val);
+                if(node.left != null) {
+                    stack2.push(node.left);
+                }
+                if(node.right != null) {
+                    stack2.push(node.right);
+                }
+            }
+
+            if(tmp.size() != 0) {
+                res.add(new ArrayList<Integer>(tmp));
+            }
+            tmp.clear();
+
+            while(!stack2.isEmpty()) {
+                TreeNode node = stack2.pop();
+                tmp.add(node.val);
+                if(node.right != null) {
+                    stack1.push(node.right);
+                }
+                if(node.left != null) {
+                    stack1.push(node.left);
+                }
+            }
+
+            if(tmp.size() != 0) {
+                res.add(new ArrayList<Integer>(tmp));
+            }
+            tmp.clear();
+        }
+        return res;
+    }
 
     }
