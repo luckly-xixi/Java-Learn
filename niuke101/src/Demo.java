@@ -1370,4 +1370,81 @@ public class Demo {
         return res;
     }
 
+
+
+    // 28. 二叉树的最大深度
+    // 递归
+    public int maxDepth1 (TreeNode root) {
+        if(root == null) {
+            return 0;
+        }
+
+        return Math.max(maxDepth1(root.left), maxDepth1(root.right)) + 1;
+    }
+
+    // BFS
+    public int maxDepth2 (TreeNode root) {
+        if(root == null) {
+            return 0;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        int res = 0;
+
+        while(!queue.isEmpty()) {
+            int n = queue.size();
+            for(int i=0; i<n; i++) {
+                TreeNode node = queue.poll();
+                if(node.left != null) {
+                    queue.offer(node.left);
+                }
+                if(node.right != null) {
+                    queue.offer(node.right);
+                }
+            }
+            res++;
+        }
+        return res;
+    }
+
+
+    // DFS
+    public int maxDepth (TreeNode root) {
+        if(root == null) {
+            return 0;
+        }
+
+        Stack<TreeNode> stack = new Stack<>();
+        Stack<Integer> level = new Stack<>();
+        stack.push(root);
+        level.push(1);
+
+        int max = 0;
+
+        while(!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            int tmp = level.pop();
+            max = Math.max(tmp, max);
+
+            if(node.left != null) {
+                stack.push(node.left);
+                level.push(tmp + 1);
+            }
+            if(node.right != null) {
+                stack.push(node.right);
+                level.push(tmp + 1);
+            }
+        }
+        return max;
+    }
+
+
+    // 29. 二叉树中和为某一值的路径(一)
+    public boolean hasPathSum (TreeNode root, int sum) {
+        
+    }
+
+
     }
