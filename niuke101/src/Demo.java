@@ -1442,8 +1442,50 @@ public class Demo {
 
 
     // 29. 二叉树中和为某一值的路径(一)
-    public boolean hasPathSum (TreeNode root, int sum) {
-        
+
+
+        class Pair {
+            TreeNode node = null;
+            int curSum = 0;
+            public Pair(TreeNode node,int curSum) {
+                this.node = node;
+                this.curSum = curSum;
+            }
+        }
+        public boolean hasPathSum (TreeNode root, int sum) {
+            // write code here
+            if(root == null) { return false; }
+            Queue<Pair> nodeQueue = new LinkedList<>();
+            Pair pair = new Pair(root,root.val);
+            nodeQueue.add(pair);
+            Pair curPair = null;
+
+            while(!nodeQueue.isEmpty()) {
+                curPair = nodeQueue.poll();
+                if(curPair.node.left != null) {
+                    nodeQueue.add(new Pair(
+                            curPair.node.left,
+                            curPair.curSum + curPair.node.left.val
+                    ));
+                }
+                if(curPair.node.right != null) {
+                    nodeQueue.add(new Pair(
+                            curPair.node.right,
+                            curPair.curSum + curPair.node.right.val
+                    ));
+                }
+
+                if(curPair.node.left == null && curPair.node.right == null) {
+                    if(sum == curPair.curSum) {
+                        return true;
+                    }
+                }
+            }
+
+
+            return false;
+
+
     }
 
 
