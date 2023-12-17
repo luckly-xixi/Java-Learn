@@ -1442,51 +1442,86 @@ public class Demo {
 
 
     // 29. 二叉树中和为某一值的路径(一)
-
-
-        class Pair {
-            TreeNode node = null;
-            int curSum = 0;
-            public Pair(TreeNode node,int curSum) {
-                this.node = node;
-                this.curSum = curSum;
-            }
-        }
-        public boolean hasPathSum (TreeNode root, int sum) {
-            // write code here
-            if(root == null) { return false; }
-            Queue<Pair> nodeQueue = new LinkedList<>();
-            Pair pair = new Pair(root,root.val);
-            nodeQueue.add(pair);
-            Pair curPair = null;
-
-            while(!nodeQueue.isEmpty()) {
-                curPair = nodeQueue.poll();
-                if(curPair.node.left != null) {
-                    nodeQueue.add(new Pair(
-                            curPair.node.left,
-                            curPair.curSum + curPair.node.left.val
-                    ));
-                }
-                if(curPair.node.right != null) {
-                    nodeQueue.add(new Pair(
-                            curPair.node.right,
-                            curPair.curSum + curPair.node.right.val
-                    ));
-                }
-
-                if(curPair.node.left == null && curPair.node.right == null) {
-                    if(sum == curPair.curSum) {
-                        return true;
-                    }
-                }
-            }
-
-
+    // 递归
+    public boolean hasPathSum1 (TreeNode root, int sum) {
+        if(root == null) {
             return false;
+        }
 
-
+        if(root.left == null && root.right == null && sum - root.val == 0) {
+            return true;
+        }
+        return hasPathSum1(root.left, sum - root.val) || hasPathSum1(root.right, sum - root.val);
     }
 
+
+    // dfs
+    public boolean hasPathSum2 (TreeNode root, int sum) {
+        if(root == null) {
+            return false;
+        }
+
+        Stack<TreeNode> s1 = new Stack<>();
+        Stack<Integer> s2 = new Stack<>();
+        s1.push(root);
+        s2.push(root.val);
+
+        while(!s1.isEmpty()) {
+            TreeNode node = s1.pop();
+            int cur_sum = s2.pop();
+
+            if(node.left == null && node.right == null && sum == cur_sum) {
+                return true;
+            }
+
+            if(node.left != null) {
+                s1.push(node.left);
+                s2.push(cur_sum + node.left.val);
+            }
+            if(node.right != null) {
+                s1.push(node.right);
+                s2.push(cur_sum + node.right.val);
+            }
+        }
+
+        return false;
+    }
+
+    // Dfs
+    public boolean hasPathSum (TreeNode root, int sum) {
+        if(root == null) {
+            return false;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        root.val = sum - root.val;
+        queue.add(root);
+
+        while(!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+
+            if(node.left == null && node.right == null && node.val == 0) {
+                return true;
+            }
+
+            if(node.left != null) {
+                node.left.val = node.val - node.left.val;
+                queue.add(node.left);
+            }
+            if(node.right != null) {
+                node.right.val = node.val - node.right.val;
+                queue.add(node.right);
+            }
+        }
+
+        return false;
+    }
+
+
+    // 30. 二叉搜索树与双向链表
+    public TreeNode Convert(TreeNode pRootOfTree) {
+
+        return null;
+    }
 
     }
