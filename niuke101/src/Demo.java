@@ -1519,8 +1519,24 @@ public class Demo {
 
 
     // 30. 二叉搜索树与双向链表
-    public TreeNode Convert(TreeNode pRootOfTree) {
+    public TreeNode head = null;
+    public TreeNode pre = null;
 
+    public TreeNode Convert(TreeNode pRootOfTree) {
+        if(pRootOfTree == null) {
+            return null;
+        }
+
+        Convert(pRootOfTree.left);
+        if(pre == null) {
+            head = pRootOfTree;
+            pre = pRootOfTree;
+        } else {
+            pre.right = pRootOfTree;
+            pRootOfTree.left = pre;
+            pre = pRootOfTree;
+        }
+        Convert(pRootOfTree.right);
         return null;
     }
 
