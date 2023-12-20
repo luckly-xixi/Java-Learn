@@ -1519,15 +1519,17 @@ public class Demo {
 
 
     // 30. 二叉搜索树与双向链表
+    // 递归
     public TreeNode head = null;
     public TreeNode pre = null;
 
-    public TreeNode Convert(TreeNode pRootOfTree) {
+    public TreeNode Convert1(TreeNode pRootOfTree) {
         if(pRootOfTree == null) {
             return null;
         }
 
         Convert(pRootOfTree.left);
+
         if(pre == null) {
             head = pRootOfTree;
             pre = pRootOfTree;
@@ -1536,43 +1538,94 @@ public class Demo {
             pRootOfTree.left = pre;
             pre = pRootOfTree;
         }
+
         Convert(pRootOfTree.right);
-        return null;
+        return head;
     }
 
-    import java.util.*;
-    public class Solution {
-        public TreeNode Convert(TreeNode pRootOfTree) {
-            if (pRootOfTree == null)
-                return null;
-            //设置栈用于遍历
-            Stack<TreeNode> s = new Stack<TreeNode>();
-            TreeNode head = null;
-            TreeNode pre = null;
-            //确认第一个遍历到最左，即为首位
-            boolean isFirst = true;
-            while(pRootOfTree != null || !s.isEmpty()){
-                //直到没有左节点
-                while(pRootOfTree != null){
-                    s.push(pRootOfTree);
-                    pRootOfTree = pRootOfTree.left;
-                }
-                pRootOfTree = s.pop();
-                //最左元素即表头
-                if(isFirst){
-                    head = pRootOfTree;
-                    pre = head;
-                    isFirst = false;
-                    //当前节点与上一节点建立连接，将pre设置为当前值
-                }else{
-                    pre.right = pRootOfTree;
-                    pRootOfTree.left = pre;
-                    pre = pRootOfTree;
-                }
-                pRootOfTree = pRootOfTree.right;
-            }
-            return head;
+    // 非递归
+    public TreeNode Convert(TreeNode pRootOfTree) {
+        if(pRootOfTree == null) {
+            return null;
         }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode head = null;
+        TreeNode pre = null;
+        boolean isFirst = true;
+
+        while(pRootOfTree != null || stack.isEmpty()) {
+
+            while(pRootOfTree != null) {
+                stack.push(pRootOfTree);
+                pRootOfTree = pRootOfTree.left;
+            }
+
+            pRootOfTree = stack.pop();
+            if(isFirst) {
+                head = pRootOfTree;
+                pre = head;
+                isFirst = false;
+            } else {
+                pre.right = pRootOfTree;
+                pRootOfTree.left = pre;
+                pre = pRootOfTree;
+            }
+            pRootOfTree = pRootOfTree.right;
+        }
+
+        return head;
     }
 
-}
+
+    // 31.对称的二叉树
+    //递归
+
+    public boolean recursion(TreeNode root1, TreeNode root2) {
+        if(root1 == null && root2 == null) {
+            return true;
+        }
+        if(root1 == null || root2 == null || root1.val != root2.val) {
+            return false;
+        }
+        return recursion(root1.left, root2.right) && recursion(root1.right, root2.left);
+    }
+
+    public boolean isSymmetrical1 (TreeNode pRoot) {
+        return recursion(pRoot, pRoot);
+    }
+
+
+    // 非递归
+    public boolean isSymmetrical (TreeNode pRoot) {
+        if(pRoot == null) {
+            return true;
+        }
+
+        Queue<TreeNode> queue1 = new LinkedList<>();
+        Queue<TreeNode> queue2 = new LinkedList<>();
+        queue1.offer(pRoot.left);
+        queue2.offer(pRoot.right);
+
+        while(!queue1.isEmpty() && !queue2.isEmpty()) {
+            TreeNode left = queue1.poll();
+            TreeNode right = queue2.poll();
+
+            if(left == null && right == null) {
+                continue;
+            }
+
+            if(left == null || right == null || left.val != right.val ) {
+                return false;
+            }
+
+            queue1.offer(left.left);
+            queue1.offer(left.right);
+
+            queue2.offer(right.right);
+            queue2.offer(right.left);
+        }
+        return true;
+    }
+
+
+    }
