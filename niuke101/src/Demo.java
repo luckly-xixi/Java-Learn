@@ -1710,17 +1710,35 @@ public class Demo {
 
 
     // 33.二叉树的镜像
-    public TreeNode Mirror (TreeNode pRoot) {
+    // 递归
+    public TreeNode Mirror1 (TreeNode pRoot) {
         if(pRoot == null) {
             return null;
+        }
+
+        TreeNode left = Mirror1(pRoot.left);
+        TreeNode right = Mirror1(pRoot.right);
+
+        pRoot.left = right;
+        pRoot.right = left;
+
+        return pRoot;
+    }
+
+
+    // 非递归(栈)
+    public TreeNode Mirror (TreeNode pRoot) {
+        if(pRoot == null) {
+            return  null;
         }
 
         Stack<TreeNode> stack = new Stack<>();
         stack.push(pRoot);
 
-        while (!stack.isEmpty()) {
+        while(!stack.isEmpty()) {
             TreeNode node = stack.pop();
-            if (node.left != null) {
+
+            if(node.left != null) {
                 stack.push(node.left);
             }
             if(node.right != null) {
@@ -1731,9 +1749,30 @@ public class Demo {
             node.left = node.right;
             node.right = tmp;
         }
-
         return pRoot;
     }
 
+
+    // 34. 判断是不是二叉搜索树
+    // 递归
+    {
+        int pre = Integer.MIN_VALUE;
+            public boolean isValidBST (TreeNode root){
+
+            if (root == null) {
+                return;
+            }
+
+            if (!isValidBST(root.left)) {
+                return;
+            }
+
+            if (root.val < pre) {
+                return ;
+            }
+
+            return isValidBST(root.right);
+        }
+    }
 
     }
