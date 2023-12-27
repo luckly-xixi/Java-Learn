@@ -1760,15 +1760,15 @@ public class Demo {
             public boolean isValidBST (TreeNode root){
 
             if (root == null) {
-                return;
+                return true;
             }
 
             if (!isValidBST(root.left)) {
-                return;
+                return false;
             }
 
             if (root.val < pre) {
-                return ;
+                return false;
             }
 
             return isValidBST(root.right);
