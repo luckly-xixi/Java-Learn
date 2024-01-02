@@ -1755,8 +1755,8 @@ public class Demo {
 
     // 34. 判断是不是二叉搜索树
     // 递归
-    {
-        int pre = Integer.MIN_VALUE;
+
+        int p = Integer.MIN_VALUE;
             public boolean isValidBST (TreeNode root){
 
             if (root == null) {
@@ -1767,12 +1767,12 @@ public class Demo {
                 return false;
             }
 
-            if (root.val < pre) {
+            if (root.val < p) {
                 return false;
             }
 
             return isValidBST(root.right);
         }
-    }
+
 
     }
