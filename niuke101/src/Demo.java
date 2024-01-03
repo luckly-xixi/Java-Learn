@@ -1757,7 +1757,7 @@ public class Demo {
     // 递归
 
         int p = Integer.MIN_VALUE;
-            public boolean isValidBST (TreeNode root){
+            public boolean isValidBST1 (TreeNode root){
 
             if (root == null) {
                 return true;
@@ -1774,5 +1774,30 @@ public class Demo {
             return isValidBST(root.right);
         }
 
+        // 栈
+        public boolean isValidBST (TreeNode root){
+            Stack<TreeNode> stack = new Stack<>();
+            TreeNode head = root;
+            ArrayList<Integer> sort = new ArrayList<>();
 
-    }
+            while(!stack.isEmpty() || head != null) {
+                while(head != null) {
+                    stack.push(head);
+                    head = head.left;
+                }
+                head = stack.pop();
+                sort.add(head.val);
+                head = head.right;
+            }
+
+            for(int i=1; i<sort.size(); i++) {
+                if(sort.get(i-1) > sort.get(i)) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
+        }
