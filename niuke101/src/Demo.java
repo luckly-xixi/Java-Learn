@@ -3,6 +3,7 @@ import sun.reflect.generics.tree.Tree;
 import javax.swing.tree.TreeNode;
 import javax.xml.soap.SAAJResult;
 import java.util.*;
+import java.util.concurrent.CountDownLatch;
 
 
 class ListNode {
@@ -1794,6 +1795,39 @@ public class Demo {
                 if(sort.get(i-1) > sort.get(i)) {
                     return false;
                 }
+            }
+
+            return true;
+        }
+
+
+        // 35. 判断是不是完全二叉树
+
+        public boolean isCompleteTree (TreeNode root) {
+            if(root == null) {
+                return true;
+            }
+
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.offer(root);
+
+            TreeNode cur;
+            boolean notComplete = false;
+
+            while(!queue.isEmpty()) {
+                cur = queue.poll();
+
+                if(cur == null) {
+                    notComplete = true;
+                    continue;
+                }
+
+                if(notComplete) {
+                    return false;
+                }
+
+                queue.offer(cur.left);
+                queue.offer(cur.right);
             }
 
             return true;
