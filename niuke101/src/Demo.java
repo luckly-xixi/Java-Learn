@@ -1802,36 +1802,36 @@ public class Demo {
 
 
         // 35. 判断是不是完全二叉树
+        // 层序遍历
+            public boolean isCompleteTree (TreeNode root) {
+                boolean left = true;
 
-        public boolean isCompleteTree (TreeNode root) {
-            if(root == null) {
+                if(root == null) {
+                    return true;
+                }
+
+                Queue<TreeNode> queue = new LinkedList<>();
+                queue.offer(root);
+
+                while(!queue.isEmpty()) {
+                    TreeNode nowNode = queue.poll();
+
+                    if(nowNode == null) {
+                        left = false;
+                    } else {
+                        if(left == false) {
+                            return false;
+                        }
+                        queue.offer(nowNode.left);
+                        queue.offer(nowNode.right);
+                    }
+
+                }
+
                 return true;
             }
 
-            Queue<TreeNode> queue = new LinkedList<>();
-            queue.offer(root);
 
-            TreeNode cur;
-            boolean notComplete = false;
-
-            while(!queue.isEmpty()) {
-                cur = queue.poll();
-
-                if(cur == null) {
-                    notComplete = true;
-                    continue;
-                }
-
-                if(notComplete) {
-                    return false;
-                }
-
-                queue.offer(cur.left);
-                queue.offer(cur.right);
-            }
-
-            return true;
-        }
 
 
         }
