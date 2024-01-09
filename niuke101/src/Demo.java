@@ -1831,7 +1831,54 @@ public class Demo {
                 return true;
             }
 
-
-
-
+    // 36. 判断是不是平衡二叉树
+    // dfs
+    public boolean IsBalanced_Solution1 (TreeNode pRoot) {
+        if(pRoot == null) {
+            return true;
         }
+
+        return IsBalanced_Solution1(pRoot.left) && IsBalanced_Solution1(pRoot.right) && Math.abs(deep(pRoot.left) - deep(pRoot.right)) < 2;
+    }
+
+    private int deep1(TreeNode pRoot) {
+        if(pRoot == null) {
+            return 0;
+        }
+
+        return Math.max(deep1(pRoot.left), deep1(pRoot.right)) + 1;
+    }
+
+    // 回溯
+    public boolean IsBalanced_Solution (TreeNode pRoot) {
+        if(deep(pRoot) == -1) {
+            return false;
+        }
+        return true;
+    }
+
+    private int deep(TreeNode pRoot) {
+        if(pRoot == null) {
+            return 0;
+        }
+
+        int left = deep(pRoot.left);
+        if(left == -1) {
+            return -1;
+        }
+
+        int right = deep(pRoot.right);
+        if(right == -1) {
+            return -1;
+        }
+
+        if((left - right) > 1 || (right - left) > 1) {
+            return -1;
+        }
+
+        // 子节点向父亲节点报告自己的位置
+        return (left > right ? left : right) + 1;
+    }
+
+
+    }
