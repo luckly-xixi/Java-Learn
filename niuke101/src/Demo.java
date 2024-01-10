@@ -1880,5 +1880,26 @@ public class Demo {
         return (left > right ? left : right) + 1;
     }
 
+    // 37 二叉搜索树的最近公共祖先
+
+    public int lowestCommonAncestor (TreeNode root, int p, int q) {
+        // write code here
+        if(root == null) {
+            return -1;
+        }
+
+        if((p >= root.val && q <= root.val) || (p <= root.val && q >= root.val)) {
+            return root.val;
+        }
+
+        else if(p <= root.val && p <= root.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        }
+
+        else  {
+            return lowestCommonAncestor(root.right, p, q);
+        }
+
+    }
 
     }
