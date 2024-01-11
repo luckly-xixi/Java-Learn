@@ -1880,10 +1880,11 @@ public class Demo {
         return (left > right ? left : right) + 1;
     }
 
-    // 37 二叉搜索树的最近公共祖先
 
-    public int lowestCommonAncestor (TreeNode root, int p, int q) {
-        // write code here
+
+    // 37 二叉搜索树的最近公共祖先
+    // 递归
+    public int lowestCommonAncestor1 (TreeNode root, int p, int q) {
         if(root == null) {
             return -1;
         }
@@ -1893,13 +1894,52 @@ public class Demo {
         }
 
         else if(p <= root.val && p <= root.val) {
-            return lowestCommonAncestor(root.left, p, q);
+            return lowestCommonAncestor1(root.left, p, q);
         }
 
         else  {
-            return lowestCommonAncestor(root.right, p, q);
+            return lowestCommonAncestor1(root.right, p, q);
+        }
+    }
+
+    //比较搜索路径
+
+    private ArrayList<Integer> getPath(TreeNode root, int target) {
+        ArrayList<Integer> path = new ArrayList<>();
+        TreeNode node = root;
+
+        while(node.val != target) {
+            path.add(node.val);
+
+            if(node.val < target) {
+                node = node.right;
+            } else {
+                node = node.left;
+            }
+        }
+        path.add(node.val);
+        return path;
+    }
+
+    public int lowestCommonAncestor (TreeNode root, int p, int q) {
+        ArrayList<Integer> path_p = getPath(root, p);
+        ArrayList<Integer> path_q = getPath(root, q);
+
+        int res = 0;
+        for(int i=0; i< path_p.size() && i<path_q.size(); i++) {
+            int x = path_p.get(i);
+            int y = path_q.get(i);
+
+            if(x == y) {
+                res = path_p.get(i);
+            } else {
+                break;
+            }
         }
 
+        return res;
     }
 
-    }
+
+
+}
