@@ -2000,6 +2000,106 @@ public class Demo {
     }
 
 
+    // 39. 序列化二叉树
+    // 二叉树递归
+
+    public int index = 0;
+    // 序列化
+    private void SerializeFunction(TreeNode root, StringBuilder res) {
+        //如果当前节点是空节点
+        if(root == null) {
+            res.append('#');
+            return;
+        }
+        //如果当前节点非空
+        res.append(root.val).append('!');
+
+        //当前节点的左子树
+        SerializeFunction(root.left, res);
+        //当前节点的右子树
+        SerializeFunction(root.right, res);
+
+    }
+
+    public String Serialize1(TreeNode root) {
+        // 特殊情况
+        if(root == null) {
+            return "#";
+        }
+
+        StringBuilder res = new StringBuilder();
+        SerializeFunction(root, res);
+
+        return res.toString();
+    }
+
+
+    // 反序列化
+    private TreeNode DeserializeFunction(String str) {
+        if(str.charAt(index) == '#') {
+            index++;
+            return null;
+        }
+
+        int val = 0;
+
+        while(str.charAt(index) != '!' && index != str.length()) {
+            val = val * 10 + ((str.charAt(index)) - '0');
+            index++;
+        }
+        TreeNode root = new TreeNode(val);
+
+        if(index == str.length()) {
+            return root;
+        } else {
+            index++;
+        }
+
+        root.left = DeserializeFunction(str);
+        root.right = DeserializeFunction(str);
+        return root;
+    }
+
+    TreeNode Deserialize1(String str) {
+        // 特殊情况
+        if(str == "#") {
+            return null;
+        }
+        TreeNode res = DeserializeFunction(str);
+        return res;
+    }
+
+    // 递归
+    String Serialize(TreeNode root) {
+        if(root == null) {
+            return "#";
+        }
+
+        return root.val + "," + Serialize(root.left) + "," + Serialize(root.right);
+    }
+
+    TreeNode Deserialize(String str) {
+        String[] s = str.split(",");
+        Queue<String> q = new LinkedList<>();
+        for (int i = 0; i < s.length; i++) {
+            q.offer(s[i]);
+        }
+
+        return de(q);
+    }
+
+    TreeNode de(Queue<String> queue) {
+        String s = queue.poll();
+        if(s.equals("#")) {
+            return null;
+        }
+
+        TreeNode head = new TreeNode(Integer.valueOf(s));
+        head.left = de(queue);
+        head.right = de(queue);
+        return  head;
+    }
+
 
 
 }
