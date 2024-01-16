@@ -2,6 +2,7 @@ import sun.reflect.generics.tree.Tree;
 
 import javax.swing.tree.TreeNode;
 import javax.xml.soap.SAAJResult;
+import java.time.chrono.IsoEra;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 
@@ -2070,15 +2071,15 @@ public class Demo {
     }
 
     // 递归
-    String Serialize(TreeNode root) {
+    String Serialize2(TreeNode root) {
         if(root == null) {
             return "#";
         }
 
-        return root.val + "," + Serialize(root.left) + "," + Serialize(root.right);
+        return root.val + "," + Serialize2(root.left) + "," + Serialize2(root.right);
     }
 
-    TreeNode Deserialize(String str) {
+    TreeNode Deserialize2(String str) {
         String[] s = str.split(",");
         Queue<String> q = new LinkedList<>();
         for (int i = 0; i < s.length; i++) {
@@ -2099,6 +2100,75 @@ public class Demo {
         head.right = de(queue);
         return  head;
     }
+
+    // 迭代
+    String Serialize(TreeNode root) {
+        String res ="";
+        if(root == null) {
+            res = "#!";
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while(!queue.isEmpty()) {
+            int n = queue.size();
+            while(n > 0) {
+                TreeNode p = queue.poll();
+                if(p != null) {
+                    res = res + p.val + "!";
+                    queue.offer(p.left);
+                    queue.offer(p.right);
+                } else {
+                    res = res + "#!";
+                }
+                n--;
+            }
+        }
+        return res;
+    }
+
+    TreeNode Deserialize(String str) {
+        String[] s = str.split("!");
+        if(s[0].equals("#")) {
+            return null;
+        }
+
+        Queue<String> queue = new LinkedList<>();
+        for (int i = 0; i < s.length; i++) {
+            queue.offer(s[i]);
+        }
+        String cha_num = queue.poll();
+        TreeNode root = new TreeNode(Integer.valueOf(cha_num));
+        TreeNode head = root;//用于=记录头节点
+
+        Queue<TreeNode> aux = new LinkedList<>();
+        aux.offer(root);
+
+        while(!queue.isEmpty()) {
+            int n = aux.size();
+            while(n > 0) {
+                root = aux.poll();
+                if(root != null) {
+                    String a = queue.poll();
+                    String b = queue.poll();
+                    TreeNode l = a.equals("#") ? null : new TreeNode(Integer.valueOf(a));
+                    TreeNode r = b.equals("#") ? null : new TreeNode(Integer.valueOf(b));
+                    root.left = l;
+                    root.right = r;
+                    if(l != null) {
+                        aux.offer(l);
+                    }
+                    if(r != null) {
+                        aux.offer(r);
+                    }
+                }
+                n--;
+            }
+        }
+        return head;
+    }
+
 
 
 
