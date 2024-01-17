@@ -2171,5 +2171,57 @@ public class Demo {
 
 
 
+    // 40.重建二叉树
+    //  递归
+    public TreeNode reConstructBinaryTree1 (int[] preOrder, int[] vinOrder) {
+        int n = preOrder.length;
+        int m = vinOrder.length;
+        if(n == 0 || m == 0) {
+            return null;
+        }
+        TreeNode root = new TreeNode(preOrder[0]);
 
-}
+        for (int i = 0; i < vinOrder.length; i++) {
+            if(preOrder[0] == vinOrder[i]) {
+                root.left = reConstructBinaryTree1(Arrays.copyOfRange(preOrder, 1, i+1), Arrays.copyOfRange(vinOrder, 0, i));
+                root.right = reConstructBinaryTree1(Arrays.copyOfRange(preOrder, i+1, preOrder.length), Arrays.copyOfRange(vinOrder, i+1,vinOrder.length));
+                break;
+            }
+        }
+
+        return root;
+    }
+
+    // 栈
+    public TreeNode reConstructBinaryTree (int[] preOrder, int[] vinOrder) {
+        int n = preOrder.length;
+        int m = vinOrder.length;
+        if(n == 0 || m == 0) {
+            return null;
+        }
+
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode root = new TreeNode(preOrder[0]);
+        TreeNode cur = root;
+
+        for (int i = 1, j=0; i < n; i++) {
+            if(cur.val != vinOrder[j]) {
+                cur.left = new TreeNode(preOrder[i]);
+                stack.push(cur);
+                cur = cur.left;
+            } else {
+                j++;
+                while(!stack.isEmpty() && stack.peek().val == vinOrder[j]) {
+                    cur = stack.pop();
+                    j++;
+                }
+                cur.right = new TreeNode(preOrder[i]);
+                cur = cur.right;
+            }
+        }
+
+        return root;
+    }
+
+
+    }
