@@ -2227,7 +2227,6 @@ public class Demo {
 
     //41. 输出二叉树的右视图
     //
-    public Map<Integer,Integer> index;
 
     public TreeNode buildTree(int[] preOrder,int l1,int r1,int[] inOrder,int l2,int r2) {
         if(l1>r1 || l2>r2) {
