@@ -2226,5 +2226,79 @@ public class Demo {
 
 
     //41. 输出二叉树的右视图
+    private TreeNode buildTreeNode(int[] preOrder, int l1, int r1, int[] inOrder, int l2, int r2) {
+        if(l1 > r1 || l2 > r2) {
+            return null;
+        }
+
+        TreeNode root = new TreeNode(preOrder[l1]);
+        int rootIndex = -1;
+
+        for (int i = l2; i <= r2; i++) {
+            if(inOrder[i] == preOrder[l1]) {
+                rootIndex = i;
+                break;
+            }
+        }
+
+        int leftSize = rootIndex - l2;
+        int rightSize = r2 - rootIndex;
+
+        root.left = buildTreeNode(preOrder, l1+1, l1+leftSize, inOrder, l2, l2+leftSize-1);
+        root.right = buildTreeNode(preOrder, r1-rightSize+1, r1, inOrder, rootIndex+1, r2);
+        return root;
+    }
+
+    private ArrayList<Integer> rightSideView(TreeNode root) {
+        Map<Integer, Integer> mp = new HashMap<>();
+        int max_depth = -1;
+
+        Stack<Integer> depths = new Stack<>();
+        depths.push(0);
+        Stack<TreeNode> nodes = new Stack<>();
+        nodes.push(root);
+
+        while(!nodes.isEmpty()) {
+            TreeNode node = nodes.pop();
+            int depth = depths.pop();
+
+            if(node != null) {
+                max_depth = Math.max(depth, max_depth);
+
+                if(mp.get(depth) == null) {
+                    mp.put(depth, node.val);
+                }
+            nodes.push(node.left);
+            nodes.push(node.right);
+            depths.push(depth+1);
+            depths.push(depth+1);
+            }
+        }
+
+        ArrayList<Integer> res = new ArrayList<>();
+        for (int i = 0; i <= max_depth; i++) {
+            res.add(mp.get(i));
+        }
+        return res;
+    }
+
+    public int[] solve (int[] preOrder, int[] inOrder) {
+        if(preOrder.length == 0) {
+            return new int[0];
+        }
+
+        TreeNode root = buildTreeNode(preOrder, 0, preOrder.length-1, inOrder, 0, inOrder.length-1);
+
+        ArrayList<Integer> tmp = rightSideView(root);
+
+        int[] res = new int[tmp.size()];
+        for (int i = 0; i < tmp.size(); i++) {
+            res[i] = tmp.get(i);
+        }
+
+        return res;
+    }
+
+
 
 }
