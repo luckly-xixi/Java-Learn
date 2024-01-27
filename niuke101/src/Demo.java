@@ -2226,7 +2226,8 @@ public class Demo {
 
 
     //41. 输出二叉树的右视图
-    private TreeNode buildTreeNode(int[] preOrder, int l1, int r1, int[] inOrder, int l2, int r2) {
+    // 递归建树+深度优先搜索
+    private TreeNode buildTreeNode1(int[] preOrder, int l1, int r1, int[] inOrder, int l2, int r2) {
         if(l1 > r1 || l2 > r2) {
             return null;
         }
@@ -2244,12 +2245,12 @@ public class Demo {
         int leftSize = rootIndex - l2;
         int rightSize = r2 - rootIndex;
 
-        root.left = buildTreeNode(preOrder, l1+1, l1+leftSize, inOrder, l2, l2+leftSize-1);
-        root.right = buildTreeNode(preOrder, r1-rightSize+1, r1, inOrder, rootIndex+1, r2);
+        root.left = buildTreeNode1(preOrder, l1+1, l1+leftSize, inOrder, l2, l2+leftSize-1);
+        root.right = buildTreeNode1(preOrder, r1-rightSize+1, r1, inOrder, rootIndex+1, r2);
         return root;
     }
 
-    private ArrayList<Integer> rightSideView(TreeNode root) {
+    private ArrayList<Integer> rightSideView1(TreeNode root) {
         Map<Integer, Integer> mp = new HashMap<>();
         int max_depth = -1;
 
@@ -2282,13 +2283,84 @@ public class Demo {
         return res;
     }
 
-    public int[] solve (int[] preOrder, int[] inOrder) {
+    public int[] solve1 (int[] preOrder, int[] inOrder) {
         if(preOrder.length == 0) {
             return new int[0];
         }
 
-        TreeNode root = buildTreeNode(preOrder, 0, preOrder.length-1, inOrder, 0, inOrder.length-1);
+        TreeNode root = buildTreeNode1(preOrder, 0, preOrder.length-1, inOrder, 0, inOrder.length-1);
 
+        ArrayList<Integer> tmp = rightSideView1(root);
+
+        int[] res = new int[tmp.size()];
+        for (int i = 0; i < tmp.size(); i++) {
+            res[i] = tmp.get(i);
+        }
+
+        return res;
+    }
+
+
+    // 哈希表优化的递归建树+层次遍历
+    public Map<Integer, Integer> aaa;
+
+    private TreeNode build(int[] preOrder, int l1, int r1, int[] inOrder, int l2, int r2) {
+        if(l1>r1 || l2>r2) {
+            return null;
+        }
+
+        int preOrder_root = l1;
+        int inOrder_root = aaa.get(preOrder[preOrder_root]);
+
+        TreeNode root = new TreeNode(preOrder[preOrder_root]);
+        int leftsize = inOrder_root - l2;
+
+        root.left = build(preOrder, l1+1, leftsize+l1, inOrder, l2, inOrder_root-1);
+        root.right = build(preOrder, l1+leftsize+1, r1, inOrder, inOrder_root+1, r2);
+
+        return root;
+    }
+
+    private ArrayList<Integer> rightSideView(TreeNode root) {
+        ArrayList<Integer> res = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+
+            while(size-- != 0) {
+                TreeNode node = queue.poll();
+                if(node.left != null) {
+                    queue.offer(node.left);
+                }
+                if(node.right != null) {
+                    queue.offer(node.right);
+                }
+
+                if(size == 0) {
+                    res.add(node.val);
+                }
+            }
+        }
+
+
+        return res;
+    }
+
+
+    public int[] solve (int[] preOrder, int[] inOrder) {
+        aaa = new HashMap<>();
+
+        if(preOrder.length == 0) {
+            return new int[0];
+        }
+
+        for(int i=0; i< preOrder.length; i++) {
+            aaa.put(inOrder[i], i);
+        }
+
+        TreeNode root = build(preOrder, 0, preOrder.length-1, inOrder, 0, inOrder.length-1);
         ArrayList<Integer> tmp = rightSideView(root);
 
         int[] res = new int[tmp.size()];
@@ -2300,5 +2372,7 @@ public class Demo {
     }
 
 
+
+    // 42.  用两个栈实现队列
 
 }
