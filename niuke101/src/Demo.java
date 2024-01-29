@@ -2375,7 +2375,7 @@ public class Demo {
 
     // 42.  用两个栈实现队列
     // 双栈
-    public class Solution {
+    public class Solution1 {
         Stack<Integer> stack1 = new Stack<Integer>();
         Stack<Integer> stack2 = new Stack<Integer>();
 
@@ -2384,18 +2384,109 @@ public class Demo {
         }
 
         public int pop() {
-            while(!stack1.isEmpty()) {
-                stack2.push(stack1.pop());
+//            while(!stack1.isEmpty()) {
+//                stack2.push(stack1.pop());
+//            }
+//
+//            int res = stack2.pop();
+//
+//            while(!stack2.isEmpty()) {
+//                stack1.push(stack2.pop());
+//            }
+//
+//            return res;
+
+            if(stack2.size() <= 0) {
+                while(stack1.size() != 0) {
+                    stack2.push(stack1.pop());
+                }
             }
 
-            int res = stack2.pop();
-
-            while(!stack2.isEmpty()) {
-                stack1.push(stack2.pop());
-            }
-
-            return res;
+            return stack2.pop();
         }
     }
 
-}
+    // 43.  包含min函数的栈
+    // 双栈
+    public class Solution2 {
+
+        Stack<Integer> stack1 = new Stack<>();
+        Stack<Integer> stack2 = new Stack<>();
+
+        public void push(int node) {
+            stack1.push(node);
+
+            if(stack2.isEmpty() || stack2.peek()>node) {
+                stack2.push(node);
+            } else {
+                stack2.push(stack2.peek());
+            }
+        }
+
+        public void pop() {
+            stack1.pop();
+            stack2.pop();
+        }
+
+        public int top() {
+            return stack1.peek();
+        }
+
+        public int min() {
+            return stack2.peek();
+        }
+    }
+
+    // 借助栈和优先级队列
+    public class Solution3 {
+
+        Stack<Integer> stack = new Stack<>();
+        Queue<Integer> queue = new PriorityQueue<>();
+
+        public void push(int node) {
+            stack.push(node);
+            queue.offer(node);
+        }
+
+        public void pop() {
+            if(!stack.isEmpty()) {
+                queue.remove(stack.pop());
+            }
+        }
+
+        public int top() {
+            if(!stack.isEmpty()) {
+                return stack.peek();
+            }
+            return -1;
+        }
+
+        public int min() {
+            return queue.peek();
+        }
+    }
+
+    // 44. 有效括号序列
+    // 栈
+    public boolean isValid (String s) {
+
+        Stack<Character> stack = new Stack<>();
+
+        for(int i=0; i<s.length(); i++) {
+            if(s.charAt(i) == '(') {
+                stack.push(')');
+            } else if(s.charAt(i) == '[') {
+                stack.push(']');
+            } else if(s.charAt(i) == '{') {
+                stack.push('}');
+            } else if(stack.isEmpty() || s.charAt(i)!=stack.pop()) {
+                return false;
+            }
+        }
+
+        return stack.isEmpty();
+    }
+
+    // 45. 滑动窗口的最大值
+
+    }
