@@ -2488,5 +2488,21 @@ public class Demo {
     }
 
     // 45. 滑动窗口的最大值
+    public ArrayList<Integer> maxInWindows (int[] num, int size) {
+        // write code here
+        ArrayList<Integer> res = new ArrayList<>();
+
+        if(size<=num.length && size!=0) {
+            for(int i=0; i<=num.length-size; i++) {
+                int max = 0;
+                for(int j=i; j<i+size; j++) {
+                    if(num[j] > max)
+                        max = num[j];
+                }
+                res.add(max);
+            }
+        }
+        return res;
+    }
 
     }
