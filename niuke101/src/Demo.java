@@ -2488,7 +2488,8 @@ public class Demo {
     }
 
     // 45. 滑动窗口的最大值
-    public ArrayList<Integer> maxInWindows (int[] num, int size) {
+//    暴力法
+    public ArrayList<Integer> maxInWindows1 (int[] num, int size) {
         // write code here
         ArrayList<Integer> res = new ArrayList<>();
 
@@ -2504,5 +2505,40 @@ public class Demo {
         }
         return res;
     }
+
+    // 双向队列
+    public ArrayList<Integer> maxInWindows (int[] num, int size) {
+
+        ArrayList<Integer> res = new ArrayList<>();
+
+        if(size<=num.length && size!=0) {
+            ArrayDeque<Integer> dq = new ArrayDeque<>();
+            // 第一个窗口
+            for(int i=0; i<size; i++) {
+                while(!dq.isEmpty() && num[dq.peekLast()]<num[i]) {
+                    dq.pollLast();
+                }
+                dq.add(i);
+            }
+
+            // 之后的窗口
+            for(int i=size; i<num.length; i++) {
+                res.add(num[dq.peekFirst()]);
+
+                while(!dq.isEmpty() && dq.peekFirst()<(i-size+1)) {
+                    dq.pollFirst();
+                }
+
+                while(!dq.isEmpty() && num[dq.peekLast()]<num[i]) {
+                    dq.pollLast();
+                }
+
+                dq.add(i);
+            }
+            res.add(num[dq.pollFirst()]);
+        }
+        return res;
+    }
+
 
     }
