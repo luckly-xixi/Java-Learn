@@ -17,7 +17,7 @@ class ListNode {
 
 public class Demo {
 
-    // 1. 反转链表
+     // 1. 反转链表
     // 链表实现
     public ListNode ReverseList1(ListNode head) {
         ListNode pre = null;
@@ -285,7 +285,7 @@ public class Demo {
                 pq.add(tmp.next);
             }
         }
-    return res.next;
+        return res.next;
     }
 
     // 6. 判断链表中是否有环
@@ -357,7 +357,7 @@ public class Demo {
                 return slow;
             }
         }
-            return null;
+        return null;
     }
 
     public ListNode EntryNodeOfLoop(ListNode pHead) {
@@ -934,9 +934,9 @@ public class Demo {
     }
 
     public int InversePairs (int[] nums) {
-         int n = nums.length;
-         int[] res = new int[n];
-         return mergeSort(0, n-1, nums, res);
+        int n = nums.length;
+        int[] res = new int[n];
+        return mergeSort(0, n-1, nums, res);
     }
 
     // 21. 旋转数组的最小数字
@@ -1034,7 +1034,7 @@ public class Demo {
         TreeNode right = null;
 
         public TreeNode(int val) {
-          this.val = val;
+            this.val = val;
         }
 
     }
@@ -1758,79 +1758,79 @@ public class Demo {
     // 34. 判断是不是二叉搜索树
     // 递归
 
-        int p = Integer.MIN_VALUE;
-            public boolean isValidBST1 (TreeNode root){
+    int p = Integer.MIN_VALUE;
+    public boolean isValidBST1 (TreeNode root){
 
-            if (root == null) {
-                return true;
-            }
-
-            if (!isValidBST(root.left)) {
-                return false;
-            }
-
-            if (root.val < p) {
-                return false;
-            }
-
-            return isValidBST(root.right);
-        }
-
-        // 栈
-        public boolean isValidBST (TreeNode root){
-            Stack<TreeNode> stack = new Stack<>();
-            TreeNode head = root;
-            ArrayList<Integer> sort = new ArrayList<>();
-
-            while(!stack.isEmpty() || head != null) {
-                while(head != null) {
-                    stack.push(head);
-                    head = head.left;
-                }
-                head = stack.pop();
-                sort.add(head.val);
-                head = head.right;
-            }
-
-            for(int i=1; i<sort.size(); i++) {
-                if(sort.get(i-1) > sort.get(i)) {
-                    return false;
-                }
-            }
-
+        if (root == null) {
             return true;
         }
 
+        if (!isValidBST(root.left)) {
+            return false;
+        }
 
-        // 35. 判断是不是完全二叉树
-        // 层序遍历
-            public boolean isCompleteTree (TreeNode root) {
-                boolean left = true;
+        if (root.val < p) {
+            return false;
+        }
 
-                if(root == null) {
-                    return true;
-                }
+        return isValidBST(root.right);
+    }
 
-                Queue<TreeNode> queue = new LinkedList<>();
-                queue.offer(root);
+    // 栈
+    public boolean isValidBST (TreeNode root){
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode head = root;
+        ArrayList<Integer> sort = new ArrayList<>();
 
-                while(!queue.isEmpty()) {
-                    TreeNode nowNode = queue.poll();
-
-                    if(nowNode == null) {
-                        left = false;
-                    } else {
-                        if(left == false) {
-                            return false;
-                        }
-                        queue.offer(nowNode.left);
-                        queue.offer(nowNode.right);
-                    }
-
-                }
-
-                return true;
+        while(!stack.isEmpty() || head != null) {
+            while(head != null) {
+                stack.push(head);
+                head = head.left;
             }
+            head = stack.pop();
+            sort.add(head.val);
+            head = head.right;
+        }
+
+        for(int i=1; i<sort.size(); i++) {
+            if(sort.get(i-1) > sort.get(i)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    // 35. 判断是不是完全二叉树
+    // 层序遍历
+    public boolean isCompleteTree (TreeNode root) {
+        boolean left = true;
+
+        if(root == null) {
+            return true;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while(!queue.isEmpty()) {
+            TreeNode nowNode = queue.poll();
+
+            if(nowNode == null) {
+                left = false;
+            } else {
+                if(left == false) {
+                    return false;
+                }
+                queue.offer(nowNode.left);
+                queue.offer(nowNode.right);
+            }
+
+        }
+
+        return true;
+    }
 
     // 36. 判断是不是平衡二叉树
     // dfs
@@ -2269,10 +2269,10 @@ public class Demo {
                 if(mp.get(depth) == null) {
                     mp.put(depth, node.val);
                 }
-            nodes.push(node.left);
-            nodes.push(node.right);
-            depths.push(depth+1);
-            depths.push(depth+1);
+                nodes.push(node.left);
+                nodes.push(node.right);
+                depths.push(depth+1);
+                depths.push(depth+1);
             }
         }
 
@@ -2544,7 +2544,7 @@ public class Demo {
 
     //45.Top K
     // 小根堆
-    public ArrayList<Integer> GetLeastNumbers_Solution (int[] input, int k) {
+    public ArrayList<Integer> GetLeastNumbers_Solution1 (int[] input, int k) {
 
         ArrayList<Integer> res = new ArrayList<>();
         if(k==0 || input.length==0) {
@@ -2573,5 +2573,66 @@ public class Demo {
 
 
 
+    // 自建大根堆
 
+    private void buildMaxHeap(int[] res, int length) {
+        if(res==null || res.length==0 || res.length==1) {
+            return;
+        }
+
+        for (int i = (length-1)/2; i > 0 ; i--) {
+            adjustDown(res, i, res.length);
+        }
     }
+
+
+    private void adjustDown(int[] res, int k, int length) {
+        res[0] = res[k];
+
+        for(int i=2*k; i<=length; i*=2) {
+            if(i<length-1 && res[i]<res[i+1]) {
+                i++;
+            }
+            if(i>length-1 || res[0] >= res[i]) {
+                break;
+            } else {
+                res[k] = res[i];
+                k = i;
+            }
+        }
+        res[k] = res[0];
+    }
+
+    public ArrayList<Integer> GetLeastNumbers_Solution (int[] input, int k) {
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        if(input==null || input.length==0 || k==0 || k> input.length) {
+            return list;
+        }
+
+        int[] res = new int[k+1];
+
+        for (int i = 1; i < k+1; i++) {
+            res[i] = input[i-1];
+        }
+
+        buildMaxHeap(res, k+1);
+
+        for(int i=k; i<input.length; i++) {
+            if(res[1]>input[i]) {
+                res[1] = input[i];
+                adjustDown(res, 1, k+1);
+            }
+        }
+
+        for (int i = 1; i < k+1; i++) {
+            list.add(res[i]);
+        }
+
+        return list;
+    }
+
+
+
+}
