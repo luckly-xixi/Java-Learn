@@ -2603,7 +2603,7 @@ public class Demo {
         res[k] = res[0];
     }
 
-    public ArrayList<Integer> GetLeastNumbers_Solution (int[] input, int k) {
+    public ArrayList<Integer> GetLeastNumbers_Solution2 (int[] input, int k) {
 
         ArrayList<Integer> list = new ArrayList<>();
 
@@ -2633,6 +2633,46 @@ public class Demo {
         return list;
     }
 
+    // TreeMap
+    public ArrayList<Integer> GetLeastNumbers_Solution (int[] input, int k) {
+        ArrayList<Integer> res = new ArrayList<>();
+        if(input==null || input.length==0 || k>input.length || k==0) {
+            return res;
+        }
+
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        int count = 0;
+
+        for(int i=0; i<input.length; i++) {
+            if(count < k) {
+                map.put(input[i], map.getOrDefault(input[i], 0) + 1);
+                count++;
+                continue;
+            }
+
+            Map.Entry<Integer, Integer> entry = map.lastEntry();
+
+            if(entry.getKey() > input[i]) {
+                if(entry.getValue() == 1) {
+                    map.pollLastEntry();
+                } else {
+                    map.put(entry.getKey(), entry.getValue() - 1);
+                }
+                map.put(input[i], map.getOrDefault(input[i], 0) + 1);
+            }
+        }
+
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            int keyCount = entry.getValue();
+            while(keyCount-- > 0) {
+                res.add(entry.getKey());
+            }
+        }
+
+        return res;
+    }
 
 
-}
+
+
+    }
