@@ -2542,7 +2542,7 @@ public class Demo {
 
 
 
-    //45.Top K
+    //46.Top K
     // 小根堆
     public ArrayList<Integer> GetLeastNumbers_Solution1 (int[] input, int k) {
 
@@ -2574,7 +2574,6 @@ public class Demo {
 
 
     // 自建大根堆
-
     private void buildMaxHeap(int[] res, int length) {
         if(res==null || res.length==0 || res.length==1) {
             return;
@@ -2672,7 +2671,25 @@ public class Demo {
         return res;
     }
 
+    // 47.寻找第K大
+    // 优先级队列
+    public int findKth1 (int[] a, int n, int K) {
 
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+
+        for(int num : a) {
+            if(queue.size() < K) {
+                queue.add(num);
+            } else {
+                if(num > queue.peek()) {
+                    queue.poll();
+                    queue.add(num);
+                }
+            }
+        }
+
+        return queue.isEmpty() ? 0 : queue.peek();
+    }
 
 
     }
