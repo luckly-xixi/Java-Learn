@@ -17,7 +17,7 @@
     </environments>
     <mappers>
         <!-- 加载Sql的映射文件 -->
-        <mapper resource=".xml"/>
-        <!--resource中填写的是Mapper文件相对于该配置文件类的类路径-->
+        <mapper resource="UserMapper.xml"/>
+        <!--resource中填写定义的Mapper文件 相对 于mybatis-config.xml的路径-->
     </mappers>
 </configuration>

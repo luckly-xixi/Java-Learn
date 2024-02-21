@@ -5,7 +5,8 @@
 
 <!-- namespace：名称空间 -->
 <mapper namespace="test">
-    <select id="selectBlog" resultType="Blog">
-        select * from Blog where id = #{id}
+    <!-- id是sql语句的唯一标识，resultType是对应的放回结果的类型 -->
+    <select id="selectAll" resultType="com.xixi.pojo.User">
+        select * from tb_user;
     </select>
 </mapper>
