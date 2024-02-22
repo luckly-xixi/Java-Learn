@@ -1,5 +1,6 @@
 package com.xixi;
 
+import com.xixi.com.xixi.mapper.UserMapper;
 import com.xixi.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -22,7 +23,10 @@ public class Mybatisdemo {
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
         // 3. 执行sql
-        List<User> users = sqlSession.selectList("test.selectAll");
+//        List<User> users = sqlSession.selectList("test.selectAll");
+            // 3.1 获取 UserMapper 接口的代理对象
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> users = mapper.selectAll();
 
         // 4. 释放资源
         sqlSession.close();

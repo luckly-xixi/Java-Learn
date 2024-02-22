@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace：名称空间 -->
+<mapper namespace="com.xixi.mapper.UserMapper">
+    <!-- id是sql语句的唯一标识，resultType是对应的放回结果的类型 -->
+    <select id="selectAll" resultType="com.xixi.pojo.User">
+        select * from tb_user;
+    </select>
+
+    <!-- sql片段 -->
+    <sql id="com">
+        company_name as companyName
+    </sql>
+    <select id="selectAll" resultType="com.xixi.pojo.User">
+        select
+        <include refid="com"/>
+        from tb_user;
+    </select>
+    
+    <!-- resultMap：
+            1.定义<resultMap>标签
+            2.在<select>标签中，使用resultMap属性替换resultType属性
+     -->
+    <resultMap id="userResultMap" type="user"> <!-- id：唯一标识  type：映射类型，支持别名 -->
+        <result column="company_name" property="companyName"/>
+        <!-- result标签：完成一般字段的映射
+                    column：表的列名
+                    property：实体类属性名
+             id标签：完成主键字段的映射
+                    column：表的列名
+                    property：实体类属性名
+         -->
+    </resultMap>
+    
+    <select id="selectaaa" resultMap="userResultMap">
+        select * from tb_user;
+
+    </select>
+
+<!--    <select id="selectaaa" resultMap="userResultMap">-->
+<!--        select *-->
+<!--        from-->
+<!--        tb_user-->
+<!--        <if test="逻辑表达式，进行筛选">-->
+<!--            where 1 = 1-->
+<!--        </if>-->
+<!--        <if test="逻辑表达式2">-->
+<!--            and status = #{status}-->
+<!--        </if>-->
+<!--        <if test="逻辑表达式3">-->
+<!--            and ……-->
+<!--        </if>-->
+<!--    </select>-->
+
+<!--    <select id="selectaaa" resultMap="userResultMap">-->
+<!--        select *-->
+<!--        from-->
+<!--        tb_user-->
+<!--        <where>-->
+<!--            <if test="逻辑表达式，进行筛选">-->
+<!--                where-->
+<!--            </if>-->
+<!--            <if test="逻辑表达式2">-->
+<!--                and status = #{status}-->
+<!--            </if>-->
+<!--            <if test="逻辑表达式3">-->
+<!--                and ……-->
+<!--            </if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+
+<!--    <select id="selectaaa" resultMap="userResultMap">-->
+<!--        select *-->
+<!--        from-->
+<!--        tb_user-->
+<!--        <choose>&lt;!&ndash;相当于switch&ndash;&gt;-->
+<!--            <when test="status != null">-->
+<!--                status = #{status}-->
+<!--            </when>&lt;!&ndash;相当于case&ndash;&gt;-->
+<!--            <when test="companyName != null and companyName != ''">-->
+<!--                companyName = #{companyName}-->
+<!--            </when>-->
+<!--            <when test="brandName != null and brandName != ''">-->
+<!--                brandName = #{brandName}-->
+<!--            </when>-->
+<!--            <otherwise>&lt;!&ndash;相当于default,用于保底策略，防止语法错误&ndash;&gt;-->
+<!--                1 = 1-->
+<!--            </otherwise>-->
+<!--        </choose>-->
+<!--    </select>-->
+
+
+<!--    <select id="selectaaa" resultMap="userResultMap">-->
+<!--        select *-->
+<!--        from-->
+<!--        tb_user-->
+<!--        <where>-->
+<!--            <choose>&lt;!&ndash;相当于switch&ndash;&gt;-->
+<!--                <when test="status != null">-->
+<!--                    status = #{status}-->
+<!--                </when>&lt;!&ndash;相当于case&ndash;&gt;-->
+<!--                <when test="companyName != null and companyName != ''">-->
+<!--                    companyName = #{companyName}-->
+<!--                </when>-->
+<!--                <when test="brandName != null and brandName != ''">-->
+<!--                    brandName = #{brandName}-->
+<!--                </when>-->
+<!--            </choose>-->
+<!--        </where>-->
+<!--    </select>-->
+
+<!--    <update id="update" >-->
+<!--        update tb_user-->
+<!--        set-->
+<!--            status = #{status},-->
+<!--            name = #{name},-->
+<!--            gender = #{gender},-->
+<!--            addr = #{addr}-->
+<!--        where-->
+<!--            id = #{id};-->
+<!--    </update>-->
+
+
+<!--    <update id="update" >-->
+<!--        update tb_user-->
+<!--        <set>-->
+<!--            <if test="status != null">-->
+<!--                status = #{status},-->
+<!--            </if>-->
+<!--            <if test="name != null and name != ''">-->
+<!--                name = #{name},-->
+<!--            </if>-->
+<!--            <if test="gender != null and gender != ''">-->
+<!--                gender = #{gender},-->
+<!--            </if>-->
+<!--            <if test="addr != null and addr != ''">-->
+<!--                addr = #{addr}-->
+<!--            </if>-->
+<!--        </set>-->
+<!--        where-->
+<!--        id = #{id};-->
+<!--    </update>-->
+
+<!--    <delete id="deleteByid">-->
+<!--        delete from tb_user where id = #{id}-->
+<!--    </delete>-->
+
+<!--    <delete id="deleteByids">-->
+<!--        delete from tb_user where id-->
+<!--        in <foreach collection="ids" item="id" separator="," open="(" close=")">-->
+<!--        #{id}-->
+<!--    </foreach>-->
+<!--        ;-->
+<!--    </delete>-->
+
+
+</mapper>
