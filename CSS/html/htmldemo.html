@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="button" onclick="on()" value="开灯">
+<img id="myImage" border="0" src="../img/off.gif" style="...">
+<input type="button" onclick="off()" value="关灯">
+
+<script>
+   /* window.alert("hello"); //警告框
+    document.write("hello2");//写入HTML输出
+    console.log("hello3");//写入浏览器控制台
+
+    {
+    var test = 1;
+    var test = "掌";
+    }
+    alert(test);
+
+    {
+        let test = 2;
+    }
+    alert(test);
+
+    {
+        const pi = 3.14;
+    }*/
+
+    //window.alert("abc");
+    //alert("bbb");
+
+    /*
+    var flag = confirm("确认删除？");
+    //  confirm() 点击确认返回true，取消返回false
+    alert(flag);
+
+    if(flag) {
+        //删除逻辑
+    }
+    */
+
+    /*
+    //循环执行定时器
+    setInterval(function() {
+        alert("bbb");
+    }, 2000);
+    */
+
+    /*
+    //只执行一次
+    setTimeout(function() {
+        alert("bbb");
+    }, 3000);
+    */
+
+    //定时器案例
+    function on() {
+        document.getElementById('myImage').src='../img/on.gif';
+    }
+
+    function off() {
+        document.getElementById('myImage').src='../img/off.gif';
+    }
+
+    var x = 0;
+    setInterval(function() {
+        if(x % 2 == 0) {
+            on();
+        } else {
+            off();
+        }
+        x++;
+    }, 1000);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="标签中的属性进行事件绑定" onclick="on()">
+<input type="button" value="DOM元素进行绑定" id="aaa">
+
+
+<script>
+
+    function on() {
+        alert("事件绑定1");
+    };
+
+    document.getElementById("aaa").onclick = function () {
+        alert("事件绑定2");
+    };
+
+</script>
+</body>
+</html>
