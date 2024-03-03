@@ -5,21 +5,21 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   
-  <!--
-    Servlet 全类名
-  -->
-  <servlet>
-    <servlet-name>demo6</servlet-name>
-    <servlet-class>com/xixi/web/ServletDemo6.java</servlet-class>
-  </servlet>
+<!--  &lt;!&ndash;-->
+<!--    Servlet 全类名-->
+<!--  &ndash;&gt;-->
+<!--  <servlet>-->
+<!--    <servlet-name>demo6</servlet-name>-->
+<!--    <servlet-class>com/xixi/web/ServletDemo6.java</servlet-class>-->
+<!--  </servlet>-->
 
-  <!--
-    Servlet 访问路径
-  -->
-  <servlet-mapping>
-    <servlet-name>demo6</servlet-name>
-    <url-pattern>/demo6</url-pattern>
-  </servlet-mapping>
+<!--  &lt;!&ndash;-->
+<!--    Servlet 访问路径-->
+<!--  &ndash;&gt;-->
+<!--  <servlet-mapping>-->
+<!--    <servlet-name>demo6</servlet-name>-->
+<!--    <url-pattern>/demo6</url-pattern>-->
+<!--  </servlet-mapping>-->
 
 
 </web-app>

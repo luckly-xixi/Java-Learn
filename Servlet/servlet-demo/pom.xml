@@ -25,6 +25,11 @@
       <scope>provided</scope>
     </dependency>
 
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.6</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -34,6 +39,9 @@
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.2</version>
+<!--        <configuration>
+          <path>/xxx</path> 通过动态的项目访问路径
+        </configuration>-->
       </plugin>
     </plugins>
   </build>

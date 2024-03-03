@@ -5,12 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3398c37c-8544-49cf-98bf-ce8feb09602b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/ServletDemo5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/ServletDemo6.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/request/RequestDemo1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/request/RequestDemo2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/request/RequestDemo3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/response/ResponseDemo1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/response/ResponseDemo2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/response/ResponseDemo3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/response/ResponseDemo4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Servlet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Servlet.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xixi/web/ServletDemo1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/servlet/ServletDemo1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xixi/web/ServletDemo2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/servlet/ServletDemo2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xixi/web/ServletDemo3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/servlet/ServletDemo3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xixi/web/ServletDemo4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/servlet/ServletDemo4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xixi/web/ServletDemo5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/servlet/ServletDemo5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xixi/web/ServletDemo6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xixi/web/servlet/ServletDemo6.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xixi/web/ServletDemo1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xixi/web/ServletDemo2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xixi/web/ServletDemo3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xixi/web/ServletDemo4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xixi/web/ServletDemo5.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/Servlet/SESSIONS.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +79,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.packagesearch.PackageSearchGeneralConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xixi.web.response" />
       <recent name="com.xixi.web" />
     </key>
   </component>
@@ -87,5 +109,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
