@@ -1,0 +1,6 @@
+org\example\web\AddServlet.class
+org\example\util\SqlSessionFactoryUtils.class
+org\example\mapper\BrandMapper.class
+org\example\service\BrandService.class
+org\example\web\SelectAllServlet.class
+org\example\pojo\Brand.class
