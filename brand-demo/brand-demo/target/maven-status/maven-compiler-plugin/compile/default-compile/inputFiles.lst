@@ -1,6 +1,9 @@
 D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\util\SqlSessionFactoryUtils.java
 D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\web\AddServlet.java
+D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\web\DeleteByIdServlet.java
 D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\service\BrandService.java
 D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\web\SelectAllServlet.java
+D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\web\SelectByIdServlet.java
 D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\pojo\Brand.java
+D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\web\UpdateServlet.java
 D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\mapper\BrandMapper.java

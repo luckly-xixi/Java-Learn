@@ -1,6 +1,9 @@
 org\example\web\AddServlet.class
 org\example\util\SqlSessionFactoryUtils.class
+org\example\web\DeleteByIdServlet.class
 org\example\mapper\BrandMapper.class
 org\example\service\BrandService.class
+org\example\web\SelectByIdServlet.class
 org\example\web\SelectAllServlet.class
 org\example\pojo\Brand.class
+org\example\web\UpdateServlet.class
