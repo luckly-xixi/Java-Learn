@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a786185c-29ac-4efd-aea3-5419e2f3b665" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/util/CheckCodeUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/CheckCodeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/LonginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/RegisterServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/resources/org/example/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/css/register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/imgs/Desert1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/imgs/a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/imgs/reg_bg_min.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brand-demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brand-demo/src/main/webapp/brand.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/brand.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/SESSIONS.ser" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/SESSIONS.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/org/apache/jsp/brand_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/org/apache/jsp/brand_jsp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/org/apache/jsp/brand_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/org/apache/jsp/brand_jsp.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2dVWTYPeKq8HuIH3z7HM890Jbv6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.brand-demo [tomcat7:run].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Gitee local warehouse/Java/java-study/brand-demo/brand-demo/src/main/java/org/example/util",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.tools",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\util" />
+      <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\webapp" />
+      <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\mapper" />
+      <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\resources\org\example\mapper" />
+      <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\pojo" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.web" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a786185c-29ac-4efd-aea3-5419e2f3b665" name="Changes" comment="" />
+      <created>1710093733348</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710093733348</updated>
+      <workItem from="1710093734426" duration="4568000" />
+      <workItem from="1710100519979" duration="6025000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

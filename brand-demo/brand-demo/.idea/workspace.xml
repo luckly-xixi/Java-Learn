@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8f8b5ca-2ab4-4d2a-9220-ed3f38855e94" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/web/DeleteByIdServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mapper/BrandMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mapper/BrandMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/BrandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/BrandService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/brand.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/brand.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="f8f8b5ca-2ab4-4d2a-9220-ed3f38855e94" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,6 +78,7 @@
       <updated>1709667824357</updated>
       <workItem from="1709667825465" duration="25371000" />
       <workItem from="1709910702563" duration="1345000" />
+      <workItem from="1709997283877" duration="165000" />
     </task>
     <servers />
   </component>
