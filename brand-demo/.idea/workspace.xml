@@ -5,30 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a786185c-29ac-4efd-aea3-5419e2f3b665" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/pojo/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/util/CheckCodeUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/CheckCodeServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/LonginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/RegisterServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/resources/org/example/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/css/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/imgs/Desert1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/imgs/a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/imgs/reg_bg_min.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/src/main/webapp/brand.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/brand.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/SESSIONS.ser" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/SESSIONS.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/org/apache/jsp/brand_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/org/apache/jsp/brand_jsp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/org/apache/jsp/brand_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/org/apache/jsp/brand_jsp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/filter/LoginFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/listener/ContextLoaderListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,23 +33,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.brand-demo [tomcat7:run].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Gitee local warehouse/Java/java-study/brand-demo/brand-demo/src/main/java/org/example/util",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "configurable.group.tools",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.brand-demo [tomcat7:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Gitee local warehouse/Java/java-study/brand-demo/brand-demo/src/main/java/org/example/util&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\util" />
@@ -93,6 +72,7 @@
       <updated>1710093733348</updated>
       <workItem from="1710093734426" duration="4568000" />
       <workItem from="1710100519979" duration="6025000" />
+      <workItem from="1710174921577" duration="2388000" />
     </task>
     <servers />
   </component>
