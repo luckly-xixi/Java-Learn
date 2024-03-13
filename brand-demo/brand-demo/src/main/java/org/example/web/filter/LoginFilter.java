@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter("/*")
+@WebFilter("")
 public class LoginFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -14,7 +14,7 @@ public class LoginFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
 
         // 设置放行路径
-        String[] urls = {"/login.jsp", "/css/", "/imgs/", "/loginServlet", "/register.jsp", "/registerServlet", "/checkCodeServlet"};
+        String[] urls = {"/login.jsp", "/css/", "/imgs/", "/loginServlet", "/register.jsp", "/registerServlet", "/checkCodeServlet","/ajaxServlet"};
         // 获取请求路径
         String url = req.getRequestURL().toString();
         // 对比
@@ -35,7 +35,7 @@ public class LoginFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
             req.setAttribute("login_msg", "请先登录");
-            req.getRequestDispatcher(".login.jsp").forward(servletRequest, servletResponse);
+            req.getRequestDispatcher("/login.jsp").forward(servletRequest, servletResponse);
         }
     }
 

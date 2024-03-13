@@ -54,5 +54,39 @@
     </form>
 
 </div>
+
+<script>
+    // 给用户名输入框绑定，失去焦点的事件
+    document.getElementById("username").onblur = function() {
+
+        // 获取用户名的值
+        var username = this.value;
+
+
+
+        // 发送 Ajax 请求
+
+
+        // 创建核心对象
+        const xhttp = new XMLHttpRequest();
+        // 发送请求
+        xhttp.open("GET", "http://localhost:8080/brand-demo/ajaxServlet?username=" + username, true);
+        xhttp.send();
+        // 获取响应
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // alert(this.responseText);
+                if(this.responseText == "true") {
+                    // 用户名存在,显示提示
+                    document.getElementById("username_err").style.display = '';
+                } else {
+                    // 用户名不存在,清除提示
+                    document.getElementById("username_err").style.display = 'none';
+                }
+            }
+        };
+    }
+</script>
+
 </body>
 </html>
