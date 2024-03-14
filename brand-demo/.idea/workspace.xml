@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a786185c-29ac-4efd-aea3-5419e2f3b665" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/AddByAxiosServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/AjaxServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/SelectAllByAxiosServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/addBrand.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/ajax-demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/brand.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/js/axios-0.18.0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/js/vue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/filter/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/web/filter/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/target/classes/org/example/web/CheckCodeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/classes/org/example/web/CheckCodeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/target/classes/org/example/web/RegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/classes/org/example/web/RegisterServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-demo/target/tomcat/work/Tomcat/localhost/brand-demo/SESSIONS.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/pojo/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/src/main/java/org/example/pojo/Brand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brand-demo/src/main/webapp/addBrand.html" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/addBrand.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brand-demo/src/main/webapp/brand.html" beforeDir="false" afterPath="$PROJECT_DIR$/brand-demo/src/main/webapp/brand.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,31 +36,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Maven.brand-demo [tomcat7:run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Gitee local warehouse/Java/java-study/brand-demo/brand-demo/src/main/webapp/js&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Maven.brand-demo [tomcat7:run].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Gitee local warehouse/Java/java-study/brand-demo/brand-demo/src/main/java/org/example/pojo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\pojo" />
       <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\webapp\js" />
       <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\webapp\WEB-INF" />
       <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\util" />
       <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\webapp" />
-      <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\java\org\example\mapper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Gitee local warehouse\Java\java-study\brand-demo\brand-demo\src\main\webapp" />
@@ -93,6 +82,7 @@
       <workItem from="1710174921577" duration="3890000" />
       <workItem from="1710267613355" duration="3947000" />
       <workItem from="1710334482979" duration="6372000" />
+      <workItem from="1710360695564" duration="4486000" />
     </task>
     <servers />
   </component>

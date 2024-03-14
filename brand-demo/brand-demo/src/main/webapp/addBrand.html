@@ -6,23 +6,54 @@
     <title>添加品牌</title>
 </head>
 <body>
-<h3>添加品牌</h3>
-<form action="" method="post">
-    品牌名称：<input id="brandName" name="brandName"><br>
-    企业名称：<input id="companyName" name="companyName"><br>
-    排序：<input id="ordered" name="ordered"><br>
-    描述信息：<textarea rows="5" cols="20" id="description" name="description"></textarea><br>
-    状态：
-    <input type="radio" name="status" value="0">禁用
-    <input type="radio" name="status" value="1">启用<br>
+<div id="app">
+    <h3>添加品牌</h3>
+    <form action="" method="post">
+        品牌名称：<input id="brandName" v-model:id="brand.brandName" name="brandName"><br>
+        企业名称：<input id="companyName" v-model:id="brand.companyName" name="companyName"><br>
+        排序：<input id="ordered" v-model:id="brand.ordered" name="ordered"><br>
+        描述信息：<textarea rows="5" cols="20" id="description" v-model:id="brand.description" name="description"></textarea><br>
+        状态：
+        <input type="radio" name="status" v-model:id="brand.status" value="0">禁用
+        <input type="radio" name="status" v-model:id="brand.status" value="1">启用<br>
 
-    <input type="button" id="btn"  value="提交">
-</form>
-
+        <input type="button" id="btn" @click="submitForm" value="提交">
+    </form>
+</div>
 <script src="js/axios-0.18.0.js"></script>
+<script src="js/vue.js"></script>
 
 <script>
-    // 给按钮绑定事件
+
+    new Vue({
+        el:"#app",
+        data() {
+            return {
+                brand:{}
+            }
+        },
+        methods:{
+            submitForm() {
+                // 发送 Ajax 请求
+                var _this = this;
+
+                axios({
+                    method:"post",
+                    url:"http://localhost:8080/brand-demo/addByAxiosServlet",
+                    data:_this.brand
+                }).then(function (resp) {
+                    // 判断响应数据是否为 success
+                    if(resp.data == "success") {
+                        location.ref = "http://localhost:8080/brand-demo/brand.html";
+                    }
+                })
+            }
+        }
+    })
+
+
+
+    /*// 给按钮绑定事件
     document.getElementById("btn").onclick = function() {
         // 将表单数据转为 JSON
         var formData = {
@@ -63,7 +94,7 @@
                 location.ref = "http://localhost:8080/brand-demo/brand.html";
             }
         })
-    }
+    }*/
 </script>
 
 </body>

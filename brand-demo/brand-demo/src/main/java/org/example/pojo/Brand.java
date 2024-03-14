@@ -16,7 +16,7 @@ public class Brand {
     // 描述信息
     private String description;
     // 状态：0：禁用  1：启用
-    private Integer status;
+    private int status;
 
 
     public Brand() {
@@ -29,7 +29,7 @@ public class Brand {
         this.description = description;
     }
 
-    public Brand(Integer id, String brandName, String companyName, Integer ordered, String description, Integer status) {
+    public Brand(Integer id, String brandName, String companyName, Integer ordered, String description, int status) {
         this.id = id;
         this.brandName = brandName;
         this.companyName = companyName;
@@ -78,10 +78,18 @@ public class Brand {
         this.description = description;
     }
 
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
+    //逻辑视图
+    public String getStatusStr() {
 
+        if(this.status == 1){
+            return "启用";
+        }
+
+        return "禁用";
+    }
     public void setStatus(Integer status) {
         this.status = status;
     }
